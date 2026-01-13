@@ -3381,4 +3381,7 @@
 	}
   }
   
-  
+  /* 6개 타일만 보이게끔 함 추가하려면 n+8 */
+.tiles article:nth-child(n+7) {
+	display: none;
+  }
