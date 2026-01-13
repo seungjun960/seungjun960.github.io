@@ -66,21 +66,23 @@
 
 								<p> 📝 Created by SeungJun Lee</p>
 							</header>
-							<section class="tiles">
-								<article class="style1">
+							
+							<section class="tiles" id="tiles"> <!--	새 게시물은 항상 여기 제일 아래 수정하기 -->
+
+								<article class="style1">  <!-- </article>   👈 새 글은 여기 -->
 									<span class="image">
-										<img src="images/pic02.jpg" alt="" />
+										<img src="images/pic01.jpg" alt="" />
 									</span>
 									<a href="generic.html">
-										<h2></h2>
+										<h2>2025 연말정산</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>즐거웠던 순간들 정리 2025.01 - 2025.12</p>
 										</div>
 									</a>
 								</article>		
 								<article class="style2">
 									<span class="image">
-										<img src="images/pic01.jpg" alt="" />
+										<img src="images/pic02.jpg" alt="" />
 									</span>
 									<a href="generic.html">
 										<h2>2025 연말정산</h2>
@@ -285,5 +287,18 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-	</body>
-</html>
+			<!-- 최신 글을 위로 올리는 스크립트 (HTML에서 아래에 추가한 글이 위로 올라감) -->
+			<script>
+				(function () {
+					const tiles = document.querySelector('#tiles');
+					if (!tiles) return;
+			  
+				  const articles = Array.from(tiles.querySelectorAll('article'));
+			  
+				  // 오래된 글 → 뒤, 최근 글 → 앞으로
+				  articles.reverse().forEach(a => tiles.appendChild(a));
+				})();
+			  </script>
+			  
+		</body>
+		</html>
