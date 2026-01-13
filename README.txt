@@ -1,30 +1,30 @@
-Phantom by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Seung Jun Lee – Notes & Archive
 
+This site is a personal archive designed and customized by Seung Jun Lee.
+It focuses on recording everyday moments, photographs, and technical notes,
+structured around a clean, grid-based layout for clarity and long-term use.
 
-This is Phantom, a simple design built around a grid of large, colorful, semi-interactive
-image tiles (of which you can have as many or as few as you like). Makes use of some
-SVG and animation techniques I've been experimenting with on that other project of mine
-you may have heard about (https://carrd.co), and includes a handy generic page for whatever.
+The design has been heavily customized to reflect a minimal, archive-oriented
+aesthetic, with emphasis on readability, responsive behavior, and simplicity
+across desktop and mobile environments.
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
+This project is intended for personal documentation and creative archiving.
 
 
 Credits:
 
-	Demo Images:
-		Unsplash (unsplash.com)
+Base Template:
+  Phantom by HTML5 UP
+  https://html5up.net
+  Originally designed by @ajlkn
+  Licensed under CCA 3.0 (https://html5up.net/license)
 
-	Icons:
-		Font Awesome (fontawesome.io)
+Icons:
+  Font Awesome (https://fontawesome.com)
 
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+Libraries & Tools:
+  jQuery (https://jquery.com)
+  Responsive Tools (https://github.com/ajlkn/responsive-tools)
+
+Images:
+  Some demo images originally inspired by Unsplash (https://unsplash.com)
