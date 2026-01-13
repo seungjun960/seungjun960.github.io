@@ -3385,3 +3385,19 @@
 .tiles article:nth-child(n+7) {
 	display: none;
   }
+
+/* === Custom: tile color overlay OFF (keep photo only) === */
+.tiles article > a:before {
+	background-color: transparent !important;
+	opacity: 0 !important;
+  }
+  
+  /* hover 때도 색 올라오지 않게 */
+  .tiles article > a:hover:before {
+	opacity: 0 !important;
+  }
+  
+  /* 이미지 자체는 유지 */
+  .tiles article > .image {
+	opacity: 1 !important;
+  }
