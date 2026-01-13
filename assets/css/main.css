@@ -3386,18 +3386,21 @@
 	display: none;
   }
 
-/* === Custom: tile color overlay OFF (keep photo only) === */
-.tiles article > a:before {
-	background-color: transparent !important;
-	opacity: 0 !important;
-  }
-  
-  /* hover 때도 색 올라오지 않게 */
-  .tiles article > a:hover:before {
-	opacity: 0 !important;
-  }
-  
-  /* 이미지 자체는 유지 */
-  .tiles article > .image {
-	opacity: 1 !important;
-  }
+  /* === FORCE: show photo only, no color overlay === */
+.tiles article > a:before,
+.tiles article > a:after {
+  background: transparent !important;
+  opacity: 0 !important;
+}
+
+.tiles article > .image:before,
+.tiles article > .image:after {
+  background: transparent !important;
+  opacity: 0 !important;
+}
+
+.tiles article > .image img {
+  filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
