@@ -3343,3 +3343,10 @@
 				}
 
 			}
+
+			/* ===== Mobile header paragraph spacing fix ===== */
+@media screen and (max-width: 736px) {
+	header p {
+	  margin: 0 0 0.6em 0;
+	}
+  }
