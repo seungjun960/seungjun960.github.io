@@ -2813,35 +2813,38 @@
 
 			}
 
-			@media screen and (max-width: 480px) {
-				.tiles {
-				  display: grid;
-				  grid-template-columns: repeat(3, 1fr);
-				  gap: 0.5em;
-				  margin: 0;
-				}
-			  
-				.tiles article {
-				  width: auto;
-				  margin: 0;
-				}
-			  
-				/* ✅ 추가 1: 타일 패딩 줄이기 */
-				.tiles article > a { padding: 0.5em; }
-			  
-				/* ✅ 추가 2: 타일 제목(h2) 폰트/자간 줄이기 (핵심) */
-				.tiles article > a h2 {
-				  font-size: 0.75em;
-				  line-height: 1.2;
-				  letter-spacing: 0.12em;   /* 0.35em -> 0.12em 로 줄임 */
-				}
-			  
-				/* ✅ 추가 3: 타일 본문(content) 폰트 줄이기 */
-				.tiles article > a .content {
-				  font-size: 0.7em;
-				  line-height: 1.25;
-				}
-			  }
+			/* ===== Mobile tiles: 2 columns (recommended) ===== */
+@media screen and (max-width: 480px) {
+
+	.tiles {
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  gap: 0.75em;
+	  margin: 0;
+	}
+  
+	.tiles article {
+	  width: auto;
+	  margin: 0;
+	}
+  
+	/* 타일 내부 여백 & 글자도 모바일에 맞게 */
+	.tiles article > a {
+	  padding: 0.75em;
+	}
+  
+	.tiles article > a h2 {
+	  font-size: 0.9em;
+	  line-height: 1.25;
+	  letter-spacing: 0.12em;
+	}
+  
+	.tiles article > a .content {
+	  font-size: 0.8em;
+	  line-height: 1.35;
+	}
+  }
+  
 			  
 	/* Header */
 
