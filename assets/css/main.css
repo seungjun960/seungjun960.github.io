@@ -2818,15 +2818,31 @@
 				  display: grid;
 				  grid-template-columns: repeat(3, 1fr);
 				  gap: 0.5em;
-				  margin: 0; /* grid라서 기존 마진 리셋 */
+				  margin: 0;
 				}
 			  
 				.tiles article {
-				  width: auto;  /* 기존 width 계산 무력화 */
+				  width: auto;
 				  margin: 0;
 				}
+			  
+				/* ✅ 추가 1: 타일 패딩 줄이기 */
+				.tiles article > a { padding: 0.5em; }
+			  
+				/* ✅ 추가 2: 타일 제목(h2) 폰트/자간 줄이기 (핵심) */
+				.tiles article > a h2 {
+				  font-size: 0.75em;
+				  line-height: 1.2;
+				  letter-spacing: 0.12em;   /* 0.35em -> 0.12em 로 줄임 */
+				}
+			  
+				/* ✅ 추가 3: 타일 본문(content) 폰트 줄이기 */
+				.tiles article > a .content {
+				  font-size: 0.7em;
+				  line-height: 1.25;
+				}
 			  }
-
+			  
 	/* Header */
 
 		#header {
