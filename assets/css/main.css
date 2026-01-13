@@ -2,9 +2,7 @@
 	@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
 
 	/*
-		Phantom by HTML5 UP
-		html5up.net | @ajlkn
-		Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+		SeungJun.lee by HTML
 	*/
 
 	html, body, div, span, applet, object,
@@ -3342,17 +3340,17 @@
 			@media screen and (max-width: 736px) {
 
 				#wrapper > * > .inner {
-					padding: 0 1.25em;
+					padding: 0 0.75em;
 				}
 
 			}
 
-			/* ===== Mobile header paragraph spacing fix ===== */
-@media screen and (max-width: 736px) {
-	header p {
-	  margin: 0 0 0.6em 0;
-	}
-  }
+			/* 모바일에서 더띄우고 싶으면 1.8~2.0 */
+			@media screen and (max-width: 736px) {
+				#main > .inner > header p:last-of-type {
+				  margin-bottom: 1.4em; /* Created by 아래 여백 */
+				}
+			  }
   
  /* ===== FORCE mobile tiles layout (override Phantom defaults) ===== */
 @media screen and (max-width: 480px) {
