@@ -2814,17 +2814,18 @@
 			}
 
 			@media screen and (max-width: 480px) {
-
 				.tiles {
-					margin: 0;
+				  display: grid;
+				  grid-template-columns: repeat(3, 1fr);
+				  gap: 0.5em;
+				  margin: 0; /* grid라서 기존 마진 리셋 */
 				}
-
-					.tiles article {
-						width: 100%;
-						margin: 1.25em 0 0 0;
-					}
-
-			}
+			  
+				.tiles article {
+				  width: auto;  /* 기존 width 계산 무력화 */
+				  margin: 0;
+				}
+			  }
 
 	/* Header */
 
