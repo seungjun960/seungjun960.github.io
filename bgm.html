@@ -1,3 +1,5 @@
+<!-- 
+ 
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,41 +8,55 @@
   <title>BGM</title>
 </head>
 <body>
+  -->
+
+  
+
+  <!-- 
+ 
   <audio id="bgm" preload="auto" loop>
     <source src="assets/audio/bgm.mp3" type="audio/mpeg">
   </audio>
+   -->
 
-  <script>
-    const audio = document.getElementById('bgm');
-    const KEY = 'bgm_playing';
 
-    async function play() {
-      await audio.play();
-      localStorage.setItem(KEY, '1');
-    }
-    function pause() {
-      audio.pause();
-      localStorage.setItem(KEY, '0');
-    }
-
-    window.addEventListener('message', async (e) => {
-      if (e.data?.type === 'BGM_TOGGLE') {
-        try {
-          audio.paused ? await play() : pause();
-        } catch {}
-      }
-      if (e.data?.type === 'BGM_STATUS') {
-        e.source?.postMessage({
-          type: 'BGM_STATUS_REPLY',
-          playing: !audio.paused
-        }, '*');
-      }
-    });
-
-    // 이전 페이지에서 ON 상태였으면 자동 재생 시도
-    if (localStorage.getItem(KEY) === '1') {
-      play().catch(()=>{});
-    }
-  </script>
-</body>
-</html>
+  <!doctype html>
+  <html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BGM</title>
+  </head>
+  <body>
+    <audio id="bgm" preload="auto" loop>
+      <source src="/assets/audio/bgm.mp3" type="audio/mpeg">
+    </audio>
+  
+    <script>
+      const audio = document.getElementById('bgm');
+  
+      async function play() { await audio.play(); }
+      function pause() { audio.pause(); }
+  
+      window.addEventListener('message', async (e) => {
+        const msg = e.data;
+        if (!msg || typeof msg !== 'object') return;
+  
+        if (msg.type === 'BGM_TOGGLE') {
+          try { audio.paused ? await play() : pause(); } catch {}
+        }
+        if (msg.type === 'BGM_PLAY') {
+          try { await play(); } catch {}
+        }
+        if (msg.type === 'BGM_PAUSE') pause();
+  
+        if (msg.type === 'BGM_STATUS') {
+          e.source?.postMessage({
+            type: 'BGM_STATUS_REPLY',
+            playing: !audio.paused
+          }, '*');
+        }
+      });
+    </script>
+  </body>
+  </html>
