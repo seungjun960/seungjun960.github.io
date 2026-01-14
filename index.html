@@ -40,22 +40,31 @@
 
 
 								<!-- Logo -->
-								<button id="musicToggle" class="button small">▶︎ Music</button>
+								<button id="musicToggle" class="button small">▶︎ Music Play 🎧</button>
 
 								<script>
-								  (function () {
-									const btn = document.getElementById('musicToggle');
-									if (!btn) return;
-								
-									btn.addEventListener('click', () => {
-									  window.open(
-										'player.html',
-										'BGMPlayer',
-										'width=360,height=180'
-									  );
-									});
-								  })();
-								</script>
+									(function () {
+									  const btn = document.getElementById('musicToggle');
+									  if (!btn) return;
+									
+									  let playerWin = null;
+									
+									  btn.addEventListener('click', () => {
+										// 항상 같은 이름의 창을 사용
+										playerWin = window.open(
+										  'player.html',
+										  'BGM_PLAYER',  
+										  'width=360,height=180'
+										);
+									
+										if (playerWin) {
+										  // 이미 열려 있든 새로 열렸든, 재생 명령만 보냄
+										  playerWin.focus();
+										  playerWin.postMessage('PLAY', '*');
+										}
+									  });
+									})();
+									</script>
   
 		<!-- Hamburger -->
 		<nav>
@@ -312,11 +321,6 @@
 
 			</div>
 
-		<!-- BGM Audio (body 끝쪽에 두는 게 안전) -->
-	<audio id="bgm" preload="none" loop>
-	<source src="assets/audio/bgm.mp3" type="audio/mpeg">
-	</audio>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
@@ -337,36 +341,42 @@
 				})();
 			  </script>
 
+			  	<!-- index.html에는 “player 열고 명령 보내기-->
 
-
-
-			  	<!-- Music Button 스크립트 -->
 			  <script>
 				(function () {
 				  const btn = document.getElementById('musicToggle');
-				  const audio = document.getElementById('bgm');
+				  if (!btn) return;
 				
-				  if (!btn || !audio) return;
-				
+				  let playerWin = null;
 				  let playing = false;
 				
-				  btn.addEventListener('click', async () => {
-					try {
-					  if (!playing) {
-						await audio.play();
-						playing = true;
-						btn.textContent = '❚❚ Music Stop';
-					  } else {
-						audio.pause();
-						playing = false;
-						btn.textContent = '▶︎ Music Play 🎧';
-					  }
-					} catch (e) {
-					  console.log(e);
+				  function openPlayer() {
+					playerWin = window.open('player.html', 'BGM_PLAYER', 'width=420,height=220');
+					if (playerWin) playerWin.focus();
+					return playerWin;
+				  }
+				
+				  btn.addEventListener('click', () => {
+					const w = playerWin && !playerWin.closed ? playerWin : openPlayer();
+					if (!w) {
+					  alert('팝업이 차단되어 음악 플레이어를 열 수 없습니다. 팝업 허용을 켜주세요.');
+					  return;
+					}
+				
+					if (!playing) {
+					  w.postMessage('PLAY', '*');
+					  playing = true;
+					  btn.textContent = '❚❚ Music Stop';
+					} else {
+					  w.postMessage('PAUSE', '*');
+					  playing = false;
+					  btn.textContent = '▶︎ Music Play 🎧';
 					}
 				  });
 				})();
 				</script>
+
 			  
 		</body>
 		</html>

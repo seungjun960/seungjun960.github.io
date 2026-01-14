@@ -1,43 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BGM Player</title>
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 16px; }
-    button { padding: 10px 14px; font-weight: 600; }
+    body { font-family: system-ui, -apple-system, sans-serif; margin: 16px; }
+    #toggle {
+      font-size: 30px;           /* 글자 크기 */
+      padding: 20px 28px;        /* 버튼 안쪽 여백(세로, 가로) */
+      border-radius: 30px;       /* 모서리 둥글기 */
+      border: 50;
+      background: #111;
+      color: #fff;
+      cursor: pointer;
+    }
+    .hint { margin-top: 20px; opacity: .5; font-size: 18px; }
   </style>
 </head>
 <body>
-  <button id="toggle">▶︎ Music</button>
+
+  <button id="toggle">▶︎ Music Play 🎧</button>
+  <div class="hint">Click to Play</div>
 
   <audio id="bgm" loop preload="none">
     <source src="assets/audio/bgm.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    (function () {
-      const btn = document.getElementById('toggle');
-      const audio = document.getElementById('bgm');
-      let playing = false;
+  (function () {
+    // =========================
+    // 1) 단일 인스턴스 락(중복 창 자동 종료)
+    // =========================
+    const TAB_ID = sessionStorage.getItem('BGM_TAB_ID') || (Math.random().toString(36).slice(2));
+    sessionStorage.setItem('BGM_TAB_ID', TAB_ID);
 
-      btn.addEventListener('click', async () => {
-        try {
-          if (!playing) {
-            await audio.play();
-            playing = true;
-            btn.textContent = '❚❚ Music';
-          } else {
-            audio.pause();
-            playing = false;
-            btn.textContent = '▶︎ Music';
-          }
-        } catch (e) {
-          console.log(e);
-        }
-      });
-    })();
+    const LOCK_KEY = 'BGM_PLAYER_LOCK';
+    const HEARTBEAT_MS = 800;
+    const STALE_MS = 2500;
+
+    function now() { return Date.now(); }
+
+    function readLock() {
+      try { return JSON.parse(localStorage.getItem(LOCK_KEY) || 'null'); }
+      catch { return null; }
+    }
+
+    function writeLock(obj) {
+      localStorage.setItem(LOCK_KEY, JSON.stringify(obj));
+    }
+
+    // 기존 락이 살아있으면(최근 heartbeat) -> 이 창은 중복이므로 닫는다.
+    const lock = readLock();
+    if (lock && lock.id && lock.id !== TAB_ID && (now() - lock.ts) < STALE_MS) {
+      // 중복 창: 자동 종료
+      window.close();
+      // window.close가 막히는 환경이면, 사용자에게 안내 문구라도 보여주고 재생 안 하게 막는다.
+      document.body.innerHTML = '<p style="font-family:system-ui; padding:16px;">이미 플레이어가 열려 있어 이 창은 중복입니다. 이 탭을 닫아주세요.</p>';
+      return;
+    }
+
+    // 내가 리더가 됨
+    writeLock({ id: TAB_ID, ts: now() });
+
+    // heartbeat로 락 갱신
+    const hb = setInterval(() => {
+      const cur = readLock();
+      // 다른 탭이 락을 가져갔으면(내가 리더 아님) -> 재생 멈추고 종료
+      if (cur && cur.id && cur.id !== TAB_ID && (now() - cur.ts) < STALE_MS) {
+        clearInterval(hb);
+        try { audio.pause(); } catch {}
+        window.close();
+        return;
+      }
+      writeLock({ id: TAB_ID, ts: now() });
+    }, HEARTBEAT_MS);
+
+    window.addEventListener('beforeunload', () => {
+      const cur = readLock();
+      if (cur && cur.id === TAB_ID) localStorage.removeItem(LOCK_KEY);
+    });
+
+    // =========================
+    // 2) 재생 로직
+    // =========================
+    const btn = document.getElementById('toggle');
+    const audio = document.getElementById('bgm');
+    let playing = false;
+
+    async function playMusic() {
+      if (playing) return; // 이미 재생 중이면 무시 (중복 방지)
+      await audio.play();
+      playing = true;
+      btn.textContent = '❚❚';
+    }
+
+    function pauseMusic() {
+      if (!playing) return;
+      audio.pause();
+      playing = false;
+      btn.textContent = '▶︎';
+    }
+
+    btn.addEventListener('click', async () => {
+      try {
+        if (!playing) await playMusic();
+        else pauseMusic();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    // =========================
+    // 3) 다른 페이지에서 오는 명령 수신(postMessage)
+    // =========================
+    window.addEventListener('message', async (e) => {
+      try {
+        if (e.data === 'PLAY') await playMusic();
+        if (e.data === 'PAUSE') pauseMusic();
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+  })();
   </script>
 </body>
 </html>

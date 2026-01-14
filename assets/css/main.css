@@ -3363,3 +3363,27 @@ body, input, select, textarea {
 	line-height: 3em;
 	padding: 0 1.2em;
   }
+
+
+  /* ===============================
+   BGM 버튼 크기 개선 26.01.14
+================================ */
+
+/* 기본(PC) */
+#musicToggle {
+	font-size: 0.9em;        /* 글자 키움 */
+	height: 3.2em;
+	line-height: 3.2em;
+	padding: 0 1.4em;
+	font-weight: 600;
+  }
+  
+  /* 모바일에서 더 크게 */
+  @media screen and (max-width: 736px) {
+	#musicToggle {
+	  font-size: 1em;        /* 손가락 기준 */
+	  height: 3.6em;
+	  line-height: 3.6em;
+	  padding: 0 1.6em;
+	}
+  }
