@@ -6,14 +6,14 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	  
-		<!-- ✅ Link preview (Kakao/iMessage/etc.) -->
+		<!-- 링크 미리보기 (카톡/iMessage등으로 썸네일 뽑기...) -->
 		<meta property="og:title" content="Seungjun Notes & Archive" />
 		<meta property="og:description" content="개인 기록 · 사진 · 일상" />
 		<meta property="og:url" content="https://seungjun960.github.io/" />
 		<meta property="og:type" content="website" />
 		<meta property="og:image" content="https://seungjun960.github.io/images/blog.png" />
 	  
-		<!-- (선택) Twitter도 같이 -->
+		<!-- Twitter도 같이 -->
 		<meta name="twitter:card" content="summary_large_image" />
 	  
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -70,7 +70,7 @@
 							
 							<section class="tiles" id="tiles"> <!--	새 게시물은 항상 여기 제일 아래 수정하기 -->
 
-								<article class="style1">  <!-- </article>   👈 새 글은 여기 -->
+								<article class="style1">  <!-- </article> 새 글은 본 스크립트 하단 추가 -->
 									<span class="image">
 										<img src="images/pic01.jpg" alt="" />
 									</span>
@@ -293,7 +293,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
-			<!-- 최신 글을 위로 올리는 스크립트 (HTML에서 아래에 추가한 글이 위로 올라감) -->
+			<!-- 최신 글을 최상단으로 끌어올는 스크립트-->
 			<script>
 				(function () {
 					const tiles = document.querySelector('#tiles');
@@ -301,7 +301,7 @@
 			  
 				  const articles = Array.from(tiles.querySelectorAll('article'));
 			  
-				  // 오래된 글 → 뒤, 최근 글 → 앞으로
+				  // 오래된 글 → 뒤 / 최근 글 → 앞으로
 				  articles.reverse().forEach(a => tiles.appendChild(a));
 				})();
 			  </script>
