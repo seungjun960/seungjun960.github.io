@@ -214,3 +214,37 @@
 	  tiles.forEach(a => a.classList.remove('is-active'));
 	}, { passive: true });
   })();
+
+
+  (function () {
+	// 터치(모바일)에서만 동작
+	const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+	if (!isTouch) return;
+  
+	const articles = Array.from(document.querySelectorAll('.tiles article'));
+	if (!articles.length) return;
+  
+	articles.forEach((article) => {
+	  const link = article.querySelector('a[href]');
+	  if (!link) return;
+  
+	  link.addEventListener('click', (e) => {
+		// 이미 활성화면: 2번째 탭 -> 이동 허용
+		if (article.classList.contains('is-active')) return;
+  
+		// 첫 탭: 활성화만 하고 이동 막기
+		e.preventDefault();
+  
+		// 다른 타일은 닫기
+		articles.forEach(a => a.classList.remove('is-active'));
+		article.classList.add('is-active');
+	  });
+	});
+  
+	// 타일 밖을 터치하면 닫기
+	document.addEventListener('touchstart', (e) => {
+	  if (e.target.closest('.tiles article')) return;
+	  articles.forEach(a => a.classList.remove('is-active'));
+	}, { passive: true });
+  })();
+  
