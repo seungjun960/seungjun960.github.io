@@ -17,6 +17,10 @@
 		<meta name="twitter:card" content="summary_large_image" />
 	  
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- 프리텐다트 폰트 적용 (Korean UI font) -->
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+		<link rel="stylesheet"
+     	 href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 	  
 	</head>
 	<body class="is-preload">
@@ -31,6 +35,24 @@
 								<a href="index.html" class="logo">
 									<span class="symbol"><img src="images/blog.png" alt="Blog Logo" /></span><span class="title">Seungjun-Notes & Archive</span>
 								</a>
+
+							<!-- Music Play -->
+							 <!-- 🔊 Spotify (햄버거 바로 왼쪽) -->
+								<div class="header-spotify">
+									<iframe
+									style="border-radius:12px"
+									src="https://open.spotify.com/embed/track/7r32Oz3HuDHfurSAx4iokY?utm_source=generator"
+									width="300"
+									height="80"
+									frameborder="0"
+									allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+									loading="lazy">
+								  </iframe>
+  							</div>
+
+  
+
+
 
 							<!-- Nav -->	
 								<nav>
@@ -305,6 +327,38 @@
 				  articles.reverse().forEach(a => tiles.appendChild(a));
 				})();
 			  </script>
+
+
+			<!-- 음악 Scripts -->
+
+			  <script>
+				(function () {
+				  const btn = document.getElementById('musicToggle');
+				  const audio = document.getElementById('bgm');
+			  
+				  if (!btn || !audio) return;
+			  
+				  let playing = false;
+			  
+				  btn.addEventListener('click', async () => {
+					try {
+					  if (!playing) {
+						await audio.play();
+						playing = true;
+						btn.textContent = '❚❚ Music';
+					  } else {
+						audio.pause();
+						playing = false;
+						btn.textContent = '▶︎ Music';
+					  }
+					} catch (e) {
+					  // 모바일/브라우저 정책상 사용자 제스처 없으면 재생 불가 -> 버튼 클릭이면 보통 OK
+					  console.log(e);
+					}
+				  });
+				})();
+			  </script>
+
 			  
 		</body>
 		</html>
