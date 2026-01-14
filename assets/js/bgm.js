@@ -1,7 +1,64 @@
+(function () {
+    const btn = document.getElementById('musicToggle');
+    const frame = document.getElementById('bgm-frame');
+    if (!btn || !frame) return;
+  
+    if (btn.dataset.bgmBound === '1') return;
+    btn.dataset.bgmBound = '1';
+  
+    function setUI(isPlaying) {
+      btn.textContent = isPlaying ? '❚❚ Music Stop' : '▶︎ Music Play 🎧';
+      btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+    }
+  
+    function post(type) {
+      if (!frame.contentWindow) return;
+      frame.contentWindow.postMessage({ type }, '*');
+    }
+  
+    // 상태 응답 받기
+    window.addEventListener('message', (event) => {
+      const msg = event.data;
+      if (!msg || typeof msg !== 'object') return;
+      if (msg.type === 'BGM_STATUS_REPLY') setUI(!!msg.playing);
+    });
+  
+    // 초기 상태 반영
+    window.addEventListener('load', () => post('BGM_STATUS'));
+  
+    btn.addEventListener('click', () => {
+      // 사용자 제스처에서 실행 → 모바일 재생 성공률 최대
+      post('BGM_TOGGLE');
+      setTimeout(() => post('BGM_STATUS'), 150);
+    });
+  
+    setUI(false);
+  })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* assets/js/bgm.js
    - index.html의 버튼 디자인(.button.small)은 그대로 사용
    - 재생/정지 텍스트도 동일하게 유지
-*/
+
 (function () {
     const btn = document.getElementById('musicToggle');
     const audio = document.getElementById('bgm');
@@ -47,3 +104,5 @@
     audio.addEventListener('play',  () => setUI(true));
     audio.addEventListener('pause', () => setUI(false));
   })();
+
+  */

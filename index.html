@@ -302,10 +302,12 @@
 
 			</div>
 
-<!-- BGM Audio -->
+<!-- BGM Audio 
 <audio id="bgm" preload="auto" loop>
 	<source src="assets/audio/bgm.mp3" type="audio/mpeg">
-  </audio>
+  </audio> -->
+
+
   
   <!-- Scripts -->
   <script src="assets/js/jquery.min.js"></script>
@@ -315,7 +317,7 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/mobileUI.js"></script>
   <script src="assets/js/bgm.js"></script>
-  <script src="assets/js/spa.js"></script>
+
 
 
 			<!-- 최신 글을 최상단으로 끌어올는 스크립트-->
@@ -332,11 +334,12 @@
 			  </script>
 
 			<!-- 페이지 이동시 JS 메모리 초기화때문에 보이지 않는 Player 심어놓고 다른페이지 들어가도 노래 연속 재생-->			  
-			  <iframe
-			  src="bgm.html"
-			  style="position:fixed; width:0; height:0; border:0;"
-			  aria-hidden="true">
-			</iframe>
+			<iframe
+			id="bgm-frame"
+			src="bgm.html"
+			style="position:fixed; width:0; height:0; border:0; left:-9999px; top:-9999px;"
+			aria-hidden="true">
+		  </iframe>
 
 		</body>
 		</html>
