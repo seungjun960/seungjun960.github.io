@@ -319,4 +319,3 @@
 	});
   })();
   
-  <script src="assets/js/mobileUI.js"></script>

@@ -23,8 +23,12 @@
   }
 
   document.addEventListener('click', function (e) {
-    var link = closest(e.target, '.tiles a');
-    if (!link) return;
+    var tiles = document.getElementById('tiles');
+      if (!tiles) return;
+
+    var link = closest(e.target, 'a');
+      if (!link || !tiles.contains(link)) return;
+      if (!link) return;
 
     var article = closest(link, 'article');
     if (!article) return;
