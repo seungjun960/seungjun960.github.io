@@ -36,19 +36,10 @@
 									<span class="symbol"><img src="images/blog.png" alt="Blog Logo" /></span><span class="title">Seungjun-Notes & Archive</span>
 								</a>
 
-    <!--스포티파이 -->
-    <div class="right-tools">
-		<div class="spotify-mini">
-		  <iframe
-			style="border-radius:12px"
-			src="https://open.spotify.com/embed/track/30HIJzJEUYcL9Qng15UeBo?utm_source=generator"
-			width="300"
-			height="100"
-			frameborder="0"
-			allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-			loading="lazy">
-		  </iframe>
-		</div>
+  							  <div class="right-tools">
+
+		<!-- Music Button -->
+		<button id="musicToggle" class="button small">▶︎ Music🎧</button>
   
 		<!-- Hamburger -->
 		<nav>
@@ -56,6 +47,7 @@
 			<li><a href="#menu">Menu</a></li>
 		  </ul>
 		</nav>
+  
 	  </div>
   
 	</div>
@@ -304,6 +296,11 @@
 
 			</div>
 
+		<!-- BGM Audio (body 끝쪽에 두는 게 안전) -->
+	<audio id="bgm" preload="none" loop>
+	<source src="assets/audio/bgm.mp3" type="audio/mpeg">
+	</audio>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
@@ -325,36 +322,35 @@
 			  </script>
 
 
-			<!-- 음악 Scripts -->
 
+
+			  	<!-- Music Button 스크립트 -->
 			  <script>
 				(function () {
 				  const btn = document.getElementById('musicToggle');
 				  const audio = document.getElementById('bgm');
-			  
+				
 				  if (!btn || !audio) return;
-			  
+				
 				  let playing = false;
-			  
+				
 				  btn.addEventListener('click', async () => {
 					try {
 					  if (!playing) {
 						await audio.play();
 						playing = true;
-						btn.textContent = '❚❚ Music';
+						btn.textContent = '❚❚ Music Stop';
 					  } else {
 						audio.pause();
 						playing = false;
-						btn.textContent = '▶︎ Music';
+						btn.textContent = '▶︎ Music Play 🎧';
 					  }
 					} catch (e) {
-					  // 모바일/브라우저 정책상 사용자 제스처 없으면 재생 불가 -> 버튼 클릭이면 보통 OK
 					  console.log(e);
 					}
 				  });
 				})();
-			  </script>
-
+				</script>
 			  
 		</body>
 		</html>
