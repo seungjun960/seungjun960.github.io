@@ -3318,7 +3318,7 @@
 			/* 모바일에서 더띄우고 싶으면 1.8~2.0*/
 			@media screen and (max-width: 736px) {
 				#main > .inner > header p:last-of-type {
-				  margin-bottom: 1.0em; /* Created by 아래 여백 */
+				  margin-bottom: 0.6em; /* Created by 아래 여백 */
 				}
 			  }
   
