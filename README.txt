@@ -14,10 +14,9 @@ This project is intended for personal documentation and creative archiving.
 Credits:
 
 Base Template:
-  Phantom by HTML5 UP
-  https://html5up.net
-  Originally designed by @ajlkn
-  Licensed under CCA 3.0 (https://html5up.net/license)
+  Seung Jun. Lee by HTML & CSS & Java Script & SCSS
+  Originally designed by @ Massachusetts Institute of Technology Univ. @ajlkn
+  Licensed under CCA 3.0
 
 Icons:
   Font Awesome (https://fontawesome.com)
