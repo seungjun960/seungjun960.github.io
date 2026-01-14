@@ -1,8 +1,8 @@
-/* assets/js/bgm.js - iframe(bgm.html) 제어 */
+// assets/js/bgm.js (audio 직접 제어 버전)
 (function () {
     const btn = document.getElementById('musicToggle');
-    const frame = document.getElementById('bgm-frame');
-    if (!btn || !frame) return;
+    const audio = document.getElementById('bgm');
+    if (!btn || !audio) return;
   
     if (btn.dataset.bgmBound === '1') return;
     btn.dataset.bgmBound = '1';
@@ -12,21 +12,18 @@
       btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
     }
   
-    function post(type) {
-      frame.contentWindow?.postMessage({ type }, '*');
-    }
+    setUI(!audio.paused && !audio.ended);
   
-    window.addEventListener('message', (e) => {
-      if (e.data?.type === 'BGM_STATUS_REPLY') setUI(!!e.data.playing);
+    btn.addEventListener('click', async () => {
+      try {
+        if (audio.paused) await audio.play();
+        else audio.pause();
+      } catch (e) {
+        // 모바일 정책/실패 시 UI만 정리
+        setUI(false);
+      }
     });
   
-    window.addEventListener('load', () => post('BGM_STATUS'));
-  
-    btn.addEventListener('click', () => {
-      post('BGM_TOGGLE');
-      setTimeout(() => post('BGM_STATUS'), 120);
-    });
-  
-    setUI(false);
+    audio.addEventListener('play',  () => setUI(true));
+    audio.addEventListener('pause', () => setUI(false));
   })();
-  

@@ -1,46 +1,43 @@
+// assets/js/mobileUI.js
 (function () {
-  // 모바일에서만 적용
-  if (window.matchMedia && window.matchMedia('(min-width: 981px)').matches) return;
+  // 전역으로 init 함수 노출 (SPA로 DOM 교체 후 재실행용)
+  window.initMobileTiles = function initMobileTiles(root = document) {
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (!isTouch) return;
 
-  // closest() 폴백 (구형 브라우저 대비)
-  function closest(el, selector) {
-    if (!el) return null;
-    if (el.closest) return el.closest(selector);
+    const articles = Array.from(root.querySelectorAll('.tiles article'));
+    if (!articles.length) return;
 
-    // polyfill-lite
-    while (el && el.nodeType === 1) {
-      if (matches(el, selector)) return el;
-      el = el.parentElement;
-    }
-    return null;
-  }
+    // 기존 이벤트가 중복으로 붙지 않게 dataset 가드
+    articles.forEach((article) => {
+      if (article.dataset.tileBound === '1') return;
+      article.dataset.tileBound = '1';
 
-  function matches(el, selector) {
-    var p = Element.prototype;
-    var fn = p.matches || p.webkitMatchesSelector || p.mozMatchesSelector || p.msMatchesSelector;
-    if (fn) return fn.call(el, selector);
-    return false;
-  }
-
-  document.addEventListener('click', function (e) {
-    var tiles = document.getElementById('tiles');
-      if (!tiles) return;
-
-    var link = closest(e.target, 'a');
-      if (!link || !tiles.contains(link)) return;
+      const link = article.querySelector('a[href]');
       if (!link) return;
 
-    var article = closest(link, 'article');
-    if (!article) return;
+      link.addEventListener('click', (e) => {
+        // 첫 탭: 활성화만 하고 이동 막기
+        if (!article.classList.contains('is-active')) {
+          e.preventDefault();
+          articles.forEach(a => a.classList.remove('is-active'));
+          article.classList.add('is-active');
+          return;
+        }
+        // 두번째 탭: 이동 허용 (SPA라면 data-spa 붙은 링크가 가로챔)
+      });
+    });
 
-    e.preventDefault(); // 즉시 이동 막기
+    // 바깥 터치하면 닫기 (문서에 1번만)
+    if (!window.__tilesOutsideBound) {
+      window.__tilesOutsideBound = true;
+      document.addEventListener('touchstart', (e) => {
+        if (e.target.closest('.tiles article')) return;
+        document.querySelectorAll('.tiles article.is-active').forEach(a => a.classList.remove('is-active'));
+      }, { passive: true });
+    }
+  };
 
-    article.classList.add('is-entering');
-
-    var href = link.getAttribute('href');
-
-    setTimeout(function () {
-      window.location.href = href;
-    }, 500);
-  }, false);
+  // 최초 1회 실행
+  window.initMobileTiles(document);
 })();
