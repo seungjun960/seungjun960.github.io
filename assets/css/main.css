@@ -3403,35 +3403,3 @@
   opacity: 1 !important;
   transform: none !important;
 }
-
-
-
-
-
-
-/* 음악추가 스크립트 */
-
-#header .inner {
-	display: flex;
-	align-items: center;
-  }
-  
-  /* 로고는 왼쪽, 나머지는 오른쪽으로 */
-  #header .logo {
-	margin-right: auto;
-  }
-  
-  /* spotify를 nav(햄버거) 왼쪽에 */
-  .header-spotify {
-	margin-right: 1rem;
-	display: flex;
-	align-items: center;
-  }
-  
-  /* 모바일에서는 너무 커지니 줄이기 */
-  @media screen and (max-width: 736px) {
-	.header-spotify iframe {
-	  width: 200px;
-	  height: 80px;
-	}
-  }
