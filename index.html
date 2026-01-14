@@ -42,30 +42,7 @@
 								<!-- Logo -->
 								<button id="musicToggle" class="button small">▶︎ Music Play 🎧</button>
 
-								<script>
-									(function () {
-									  const btn = document.getElementById('musicToggle');
-									  if (!btn) return;
-									
-									  let playerWin = null;
-									
-									  btn.addEventListener('click', () => {
-										// 항상 같은 이름의 창을 사용
-										playerWin = window.open(
-										  'player.html',
-										  'BGM_PLAYER',  
-										  'width=360,height=180'
-										);
-									
-										if (playerWin) {
-										  // 이미 열려 있든 새로 열렸든, 재생 명령만 보냄
-										  playerWin.focus();
-										  playerWin.postMessage('PLAY', '*');
-										}
-									  });
-									})();
-									</script>
-  
+							
 		<!-- Hamburger -->
 		<nav>
 		  <ul>
@@ -321,12 +298,20 @@
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!-- BGM Audio -->
+<audio id="bgm" preload="auto" loop>
+	<source src="assets/audio/bgm.mp3" type="audio/mpeg">
+  </audio>
+  
+  <!-- Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <!-- BGM only -->
+  <script src="assets/js/bgm.js"></script>
 
 			<!-- 최신 글을 최상단으로 끌어올는 스크립트-->
 			<script>
@@ -341,42 +326,14 @@
 				})();
 			  </script>
 
-			  	<!-- index.html에는 “player 열고 명령 보내기-->
 
-			  <script>
-				(function () {
-				  const btn = document.getElementById('musicToggle');
-				  if (!btn) return;
-				
-				  let playerWin = null;
-				  let playing = false;
-				
-				  function openPlayer() {
-					playerWin = window.open('player.html', 'BGM_PLAYER', 'width=420,height=220');
-					if (playerWin) playerWin.focus();
-					return playerWin;
-				  }
-				
-				  btn.addEventListener('click', () => {
-					const w = playerWin && !playerWin.closed ? playerWin : openPlayer();
-					if (!w) {
-					  alert('팝업이 차단되어 음악 플레이어를 열 수 없습니다. 팝업 허용을 켜주세요.');
-					  return;
-					}
-				
-					if (!playing) {
-					  w.postMessage('PLAY', '*');
-					  playing = true;
-					  btn.textContent = '❚❚ Music Stop';
-					} else {
-					  w.postMessage('PAUSE', '*');
-					  playing = false;
-					  btn.textContent = '▶︎ Music Play 🎧';
-					}
-				  });
-				})();
-				</script>
 
-			  
+			<!-- 페이지 이동시 JS 메모리 초기화때문에 보이지 않는 Player 심어놓고 다른페이지 들어가도 노래 연속 재생-->			  
+			  <iframe
+			  src="bgm.html"
+			  style="position:fixed; width:0; height:0; border:0;"
+			  aria-hidden="true">
+			</iframe>
+
 		</body>
 		</html>
