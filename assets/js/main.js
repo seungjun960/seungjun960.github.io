@@ -183,3 +183,34 @@
 			});
 
 })(jQuery);
+
+
+(function () {
+	// 모바일(터치 환경)에서만
+	const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+	if (!isTouch) return;
+  
+	const tiles = document.querySelectorAll('.tiles article');
+	tiles.forEach(article => {
+	  const link = article.querySelector('a[href]');
+	  if (!link) return;
+  
+	  link.addEventListener('click', (e) => {
+		// 이미 활성화면 -> 두번째 탭: 이동 허용
+		if (article.classList.contains('is-active')) return;
+  
+		// 첫 탭: 오버레이 보여주고 이동 막기
+		e.preventDefault();
+  
+		// 다른 타일은 꺼주기
+		tiles.forEach(a => a.classList.remove('is-active'));
+		article.classList.add('is-active');
+	  });
+	});
+  
+	// 빈 곳 탭하면 닫기
+	document.addEventListener('touchstart', (e) => {
+	  if (e.target.closest('.tiles article')) return;
+	  tiles.forEach(a => a.classList.remove('is-active'));
+	}, { passive: true });
+  })();
