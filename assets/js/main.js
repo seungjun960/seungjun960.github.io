@@ -252,7 +252,7 @@
 
 
 
-  
+
 
   (function () {
 	// SPA-lite: tile 클릭 시 페이지 이동 대신 내용만 로드(음악 유지)
@@ -319,3 +319,4 @@
 	});
   })();
   
+  <script src="assets/js/mobileUI.js"></script>

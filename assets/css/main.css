@@ -3423,3 +3423,24 @@ body, input, select, textarea {
 	  transform: scale(1.08);
 	}
   }
+
+
+  @media (max-width: 980px) {
+	.tiles article {
+	  transition: transform 0.45s ease, opacity 0.45s ease;
+	}
+  
+	.tiles article.is-entering {
+	  transform: scale(1.04);
+	  opacity: 0.85;
+	}
+  
+	.tiles article .content {
+	  opacity: 0;
+	  transition: opacity 0.3s ease;
+	}
+  
+	.tiles article.is-entering .content {
+	  opacity: 1;
+	}
+  }
