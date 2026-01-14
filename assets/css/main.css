@@ -2812,38 +2812,7 @@
 
 			}
 
-			/* ===== Mobile tiles: 2 columns (recommended) ===== */
-@media screen and (max-width: 480px) {
 
-	.tiles {
-	  display: grid;
-	  grid-template-columns: repeat(2, 1fr);
-	  gap: 0.75em;
-	  margin: 0;
-	}
-  
-	.tiles article {
-	  width: auto;
-	  margin: 0;
-	}
-  
-	/* 타일 내부 여백 & 글자도 모바일에 맞게 */
-	.tiles article > a {
-	  padding: 0.75em;
-	}
-  
-	.tiles article > a h2 {
-	  font-size: 0.9em;
-	  line-height: 1.25;
-	  letter-spacing: 0.12em;
-	}
-  
-	.tiles article > a .content {
-	  font-size: 0.8em;
-	  line-height: 1.35;
-	}
-  }
-  
 			  
 	/* Header */
 
@@ -3353,33 +3322,7 @@
 				}
 			  }
   
- /* ===== FORCE mobile tiles layout (override Phantom defaults) ===== */
-@media screen and (max-width: 480px) {
 
-	.tiles {
-	  display: grid !important;
-	  grid-template-columns: repeat(2, minmax(0, 1fr));
-	  gap: 0.75em !important;
-  
-	  margin: 0 !important;
-	  padding: 0 !important;
-	}
-  
-	.tiles article {
-	  width: auto !important;
-	  margin: 0 !important;
-	}
-  
-	.tiles article > .image,
-	.tiles article > a {
-	  width: 100% !important;
-	}
-  
-	.tiles article > a {
-	  padding: 0.75em !important;
-	}
-  }
-  
   /* 6개 타일만 보이게끔 함 추가하려면 n+8 */
 .tiles article:nth-child(n+7) {
 	display: none;
@@ -3403,30 +3346,6 @@
   opacity: 1 !important;
   transform: none !important;
 }
-
-
-
-/* 모바일용 간격 넓히기 */
-@media screen and (max-width: 736px) {
-
-	/* 인트로 문단 전체 간격 줄이기 */
-	#main .inner > header > p {
-	  margin: 0 0 0.45em 0 !important;
-	  line-height: 1.45 !important;
-	}
-  
-	/* 마지막 문단(Website Created...)은 더 붙이기 */
-	#main .inner > header > p:last-of-type {
-	  margin-bottom: 0.15em !important;
-	}
-  
-	/* h1 아래 여백도 조금 줄이기 (원하면) */
-	#main .inner > header > h1 {
-	  margin: 0 0 0.6em 0 !important;
-	}
-  }
-
-
 
   /* ===== Font강제 덮어쓰기 ======= */
 body, input, select, textarea {
