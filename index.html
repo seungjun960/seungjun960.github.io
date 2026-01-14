@@ -38,8 +38,24 @@
 
   							  <div class="right-tools">
 
-		<!-- Music Button -->
-		<button id="musicToggle" class="button small">▶︎ Music🎧</button>
+
+								<!-- Logo -->
+								<button id="musicToggle" class="button small">▶︎ Music</button>
+
+								<script>
+								  (function () {
+									const btn = document.getElementById('musicToggle');
+									if (!btn) return;
+								
+									btn.addEventListener('click', () => {
+									  window.open(
+										'player.html',
+										'BGMPlayer',
+										'width=360,height=180'
+									  );
+									});
+								  })();
+								</script>
   
 		<!-- Hamburger -->
 		<nav>
