@@ -9,9 +9,38 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<style>
+			/* elements.html에서만 적용시캬보자 */
+			body.page-elements .devnote p {
+			  margin: 0 0 0.8em 0;      /* 문단 간격: 과하지 않게 */
+			  line-height: 1.7;         /* 읽기 좋게 */
+			}
+		  
+			body.page-elements .devnote .tight {
+			  margin-bottom: 0.35em;    /* "한칸 띄운 느낌" */
+			}
+		  
+			body.page-elements .devnote ul {
+			  margin: 0.2em 0 1em 1.2em; /* 리스트 기본 간격 조절 */
+			}
+		  
+			body.page-elements .devnote li {
+			  margin: 0.35em 0;         /* 항목 간격 */
+			}
+		  
+			body.page-elements .devnote .why-list li {
+			  margin: 0.25em 0;         /* Why?는 더 촘촘하게 */
+			}
+		  </style>
+
+
+
+
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload page-elements">
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -52,29 +81,58 @@
 							<h1>웹 페이지 개발 과정</h1>
 
 							<!-- Text -->
-								<section>
-									<h2>Static Web Development Notes</h2>
-									<p>제작 목적 : 인스타 피드에 올리기 애매한건 여기 모아둠ㅋㅋ</p>
-									<hr />
+							<section class="devnote">
+								<h2>Static Web Development Notes</h2>
+								<p class="tight">제작 목적 : 인스타 피드에 올리기 애매한건 여기 모아둠ㅋㅋ</p>
+								<hr />
+							  
+								<h3>프로젝트 개요</h3>
+								<p class="tight">
+								  본 웹페이지는 GitHub 기반의 개인 정적 웹 아카이브로,
+								  사진 | 기록 | 일상 로그를 인스타 피드가 아닌 개인 웹에 저장하기 위해 제작했다.
+								</p>
+							  
+								<p class="tight">
+								  CMS/Framework(React, Vue)를 사용하지 않고,
+								  HTML / CSS / JavaScript로 구현한 Static Web 이다.
+								</p>
+							    <p></p>
+
+								<p class="tight"><b>Why?</b></p>
+								<ul class="why-list">
+								  <li>완전한 사용자 통제 (UI, 콘텐츠 구조, 배포 방식)</li>
+								  <li>반응형 웹 (PC / Tablet / Mobile)</li>
+								  <li>Git-hub를 통한 서버 운영 비용 Zero 구조</li>
+								  <li>예측 가능한 웹 페이지 설계·유지</li>
+								</ul>					  
+							  <section class="devnote">
+
+								<p></p>
+								<h2>Architecture</h2>
+								<h3>1. 기술 스택 요약</h3>
+							  
+								<div class="table-wrapper">
+								  <table class="alt">
+									<thead>
+									  <tr>
+										<th>구분</th>
+										<th>기술</th>
+									  </tr>
+									</thead>
+									<tbody>
+									  <tr><td>Markup</td><td>HTML</td></tr>
+									  <tr><td>Styling</td><td>CSS3 (Media Query 기반 반응형)</td></tr>
+									  <tr><td>Logic</td><td>JavaScript</td></tr>
+									  <tr><td>Version Control</td><td>Git</td></tr>
+									  <tr><td>Hosting</td><td>GitHub Pages</td></tr>
+									  <tr><td>Domain</td><td><code>seungjun960.github.io</code></td></tr>
+									  <tr><td>Protocol</td><td>HTTPS (GitHub Pages)</td></tr>
+									</tbody>
+								  </table>
+								</div>
+							  </section>
 
 
-									<p> 프로젝트 개요 </p>
-
-										본 웹페이지는 GitHub 기반의 개인 정적 웹 아카이브로,
-										사진|기록|일상 로그를 인스타 피드 말고 개인 웹에 저장하기 위해 제작.ㅤㅤㅤㅤㅤㅤㅤㅤㅤ
-									
-
-										CMS/ Frame Work (React, Vue)를 사용하지 않고,
-										HTML / CSS / JavaScript만을 사용한 순수 정적 웹으로 구현 <p></p>
-										
-										<b>Why?</b>
-										<p></p>
-										1.문서 구조에 대한 통제ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
-										
-										2.브라우저 렌더링 동작에 대한 이해ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
-										
-										3.정적 웹 환경의 한계와 장점에 대한 직접적인 체득을 위함ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
-										4.구조적으로 안정적이고 예측 가능한 웹 페이지를 설계·유지하기 위함.</p>
 									<hr />
 									<h2>Heading Level 2</h2>
 									<h3>Heading Level 3</h3>
