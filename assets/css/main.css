@@ -3510,3 +3510,45 @@ body, input, select, textarea {
 	}
   }
 
+
+  /* ===== Mobile: make table card-like (no horizontal scroll) ===== */
+@media screen and (max-width: 480px) {
+	body.page-elements .folder-table thead {
+	  display: none;
+	}
+  
+	body.page-elements .folder-table,
+	body.page-elements .folder-table tbody,
+	body.page-elements .folder-table tr,
+	body.page-elements .folder-table td {
+	  display: block;
+	  width: 100%;
+	}
+  
+	body.page-elements .folder-table tr {
+	  margin: 0 0 0.9em 0;
+	  padding: 0.8em 0.9em;
+	  border-radius: 10px;
+	  background: rgba(0,0,0,0.04);
+	}
+  
+	body.page-elements .folder-table td {
+	  padding: 0.45em 0;
+	  border: 0;
+	}
+  
+	body.page-elements .folder-table td::before {
+	  content: attr(data-label);
+	  display: block;
+	  font-size: 0.75em;
+	  letter-spacing: 0.08em;
+	  text-transform: uppercase;
+	  color: #777;
+	  margin-bottom: 0.25em;
+	}
+  
+	body.page-elements .folder-table code {
+	  word-break: break-word;
+	}
+  }
+
