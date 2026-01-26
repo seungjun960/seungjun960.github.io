@@ -14,7 +14,7 @@
   
     setUI(!audio.paused && !audio.ended);
   
-    btn.addEventListener('click', async () => {
+    btn.addEventListener('click', async () => { 
       try {
         if (audio.paused) await audio.play();
         else audio.pause();
