@@ -149,7 +149,7 @@
 
 				// Redirect.
 					if (href == '#menu')
-						return;
+						return;	
 
 					window.setTimeout(function() {
 						window.location.href = href;

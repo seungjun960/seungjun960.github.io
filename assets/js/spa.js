@@ -57,7 +57,35 @@
       const current = location.pathname.split('/').pop() || 'index.html';
       history.replaceState({ url: current }, '', current);
     }
-  
+
+
+
+
+    // ✅ 메뉴 클릭은 main.js가 stopPropagation으로 막아서 bubble로는 못 받음
+// capture 단계에서 먼저 가로채서 SPA 처리
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('nav#menu a, #menu a');
+  if (!a) return;
+
+  const href = a.getAttribute('href');
+  if (!href) return;
+
+  if (href === '#menu' || href.startsWith('#')) return;
+  if (a.target === '_blank') return;
+
+  const url = isSameOriginUrl(href);
+  if (!url) return;
+
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  e.stopPropagation();
+
+  navigate(url, true).catch(() => {
+    location.href = href;
+  });
+}, true); // ✅ capture=true
+
+
     document.addEventListener('click', (e) => {
       const a = e.target.closest('.tiles a, #menu a, a[href$=".html"]');
       if (!a) return;
@@ -75,6 +103,8 @@
       if (!url) return;
     
       e.preventDefault();
+      e.stopImmediatePropagation(); // ✅ 이거 추가 (핵심)
+
     
       navigate(url, true).catch(() => {
         location.href = href; // 실패 시 원래 이동
