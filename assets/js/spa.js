@@ -59,7 +59,7 @@
     }
   
     document.addEventListener('click', (e) => {
-      const a = e.target.closest('.tiles a, nav#menu a');
+      const a = e.target.closest('.tiles a, #menu a, a[href$=".html"]');
       if (!a) return;
     
       const href = a.getAttribute('href');
@@ -68,7 +68,7 @@
     
       // 메뉴 토글(#menu) / 해시 링크 / 새탭 링크는 제외
       if (href === '#menu' || href.startsWith('#')) return;
-      if (a.target === '_blank') return;
+      if (a.target === '_blank') return;  
     
       const url = isSameOriginUrl(href);
       console.log('[SPA] parsed url:', url);   // ✅ 추가
