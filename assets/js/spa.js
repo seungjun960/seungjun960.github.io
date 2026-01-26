@@ -63,6 +63,7 @@
       if (!a) return;
     
       const href = a.getAttribute('href');
+      console.log('[SPA] caught link:', href); // ✅ 추가
       if (!href) return;
     
       // 메뉴 토글(#menu) / 해시 링크 / 새탭 링크는 제외
@@ -70,6 +71,7 @@
       if (a.target === '_blank') return;
     
       const url = isSameOriginUrl(href);
+      console.log('[SPA] parsed url:', url);   // ✅ 추가
       if (!url) return;
     
       e.preventDefault();
