@@ -58,27 +58,27 @@
       history.replaceState({ url: current }, '', current);
     }
   
-    //  타일(.tiles a) + 메뉴(#menu a)만 강제로 SPA 처리
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('.tiles a, #menu a');
-      if (!a) return;
-  
-      const href = a.getAttribute('href');
-      if (!href) return;
-  
-      // 메뉴 토글(#menu) / 외부링크 / 새탭 링크는 제외
-      if (href === '#menu' || href.startsWith('#') || href.startsWith('http')) return;
-      if (a.target === '_blank') return;
-  
-      const url = isSameOriginUrl(href);
-      if (!url) return;
-  
-      e.preventDefault();
-  
-      navigate(url, true).catch(() => {
-        location.href = href; // 실패 시 원래 이동
-      });
-    });
+//  타일(.tiles a) + 메뉴(#menu a)만 강제로 SPA 처리
+  document.addEventListener('click', (e) => {
+  const a = e.target.closest('.tiles a, #menu a');
+  if (!a) return;
+
+  const href = a.getAttribute('href');
+  if (!href) return;
+
+  // 메뉴 토글(#menu) / 해시 링크 / 새탭 링크는 제외
+  if (href === '#menu' || href.startsWith('#')) return;
+  if (a.target === '_blank') return;
+
+  const url = isSameOriginUrl(href);
+  if (!url) return;
+
+  e.preventDefault();
+
+  navigate(url, true).catch(() => {
+    location.href = href; // 실패 시 원래 이동
+  });
+});
   
     // 뒤로가기
     window.addEventListener('popstate', (e) => {
