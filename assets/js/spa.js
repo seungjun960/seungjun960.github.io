@@ -52,36 +52,30 @@
       afterSwap();
     }
   
-    // 최초 state 고정
-    if (!history.state || !history.state.url) {
-      const current = location.pathname.split('/').pop() || 'index.html';
-      history.replaceState({ url: current }, '', current);
-    }
-  
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('.tiles a, a[href$=".html"]');
-      if (!a) return;
-    
-      const href = a.getAttribute('href');
-      console.log('[SPA] caught link:', href); // ✅ 추가
-      if (!href) return;
-    
-      // 메뉴 토글(#menu) / 해시 링크 / 새탭 링크는 제외
-      if (href === '#menu' || href.startsWith('#')) return;
-      if (a.target === '_blank') return;  
-    
-      const url = isSameOriginUrl(href);
-      console.log('[SPA] parsed url:', url);   // ✅ 추가
-      if (!url) return;
-    
-      e.preventDefault();
-      e.stopPropagation();
+// ✅ 메뉴(#menu) 클릭은 main.js가 stopPropagation으로 막아서 bubble로는 못 받음
+// capture 단계에서 먼저 가로채서 SPA 처리
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('#menu a');
+  if (!a) return;
 
-    
-      navigate(url, true).catch(() => {
-        location.href = href; // 실패 시 원래 이동
-      });
-    });
+  const href = a.getAttribute('href');
+  if (!href) return;
+
+  // 메뉴 토글/해시/새탭 제외
+  if (href === '#menu' || href.startsWith('#')) return;
+  if (a.target === '_blank') return;
+
+  const url = isSameOriginUrl(href);
+  if (!url) return;
+
+  // 여기서 main.js 리다이렉트 막고 SPA로 처리
+  e.preventDefault();
+  e.stopPropagation();
+
+  navigate(url, true).catch(() => {
+    location.href = href;
+  });
+}, true); // ✅ capture=true (핵심)
   
     // 뒤로가기
     window.addEventListener('popstate', (e) => {
