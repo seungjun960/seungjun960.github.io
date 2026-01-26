@@ -343,158 +343,162 @@
 
 							  <hr />
 
+
 							<!-- Lists -->
+							<section>
+							<h2>Lists</h2>
+							<div class="row">
 
-								<section>
-									<h2>Lists</h2>
-									<div class="row">
-										<div class="col-6 col-12-medium">
-											<h3>Unordered</h3>
-											<ul>
-												<li>Dolor pulvinar etiam.</li>
-												<li>Sagittis adipiscing.</li>
-												<li>Felis enim feugiat.</li>
-											</ul>
-											<h3>Alternate</h3>
-											<ul class="alt">
-												<li>Dolor pulvinar etiam.</li>
-												<li>Sagittis adipiscing.</li>
-												<li>Felis enim feugiat.</li>
-											</ul>
-										</div>
-										
-										<div class="col-6 col-12-medium">
-											<h3>Ordered</h3>
-											<ol>
-												<li>Dolor pulvinar etiam.</li>
-												<li>Etiam vel felis viverra.</li>
-												<li>Felis enim feugiat.</li>
-												<li>Dolor pulvinar etiam.</li>
-												<li>Etiam vel felis lorem.</li>
-												<li>Felis enim et feugiat.</li>
-											</ol>
+							<!-- LEFT -->
+							<div class="col-6 col-12-medium">
 
-											<h3>Follow Icons</h3>
+							<!-- Unordered: 핵심 특징/기술 요약 -->
+							<h3>Core Design</h3>
+							<ul>
+							<li>Static web archive built with HTML / CSS / JavaScript (no framework)</li>
+							<li>Mobile-first responsive layout via CSS media queries</li>
+							<li>GitHub Pages hosting (HTTPS, zero server maintenance)</li>
+							<li>Content-first structure: tiles → detail pages → reusable components</li>
+							<li>DOM-based feed ordering to simulate “latest first” without DB</li>
+							<li>External integrations (Google Form DM, Instagram/LinkedIn/GitHub links)</li>
+							</ul>
 
-											<ul class="icons">
-											  <li>
-												<a href="https://www.instagram.com/jjuuun_l/"
-												   class="icon brands style1 fa-instagram"
-												   target="_blank" rel="noopener">
-												  <span class="label">Instagram</span>
-												</a>
-											  </li>
-											
-											  <li>
-												<a href="https://www.linkedin.com/in/seung-jun-lee-504a942b9/"
-												   class="icon brands style1 fa-linkedin-in"
-												   target="_blank" rel="noopener">
-												  <span class="label">LinkedIn</span>
-												</a>
-											  </li>
-											
-											  <li>
-												<a href="https://github.com/seungjun960"
-												   class="icon brands style1 fa-github"
-												   target="_blank" rel="noopener">
-												  <span class="label">GitHub</span>
-												</a>
-											  </li>
-											
-											  <li>
-												<a href="https://open.kakao.com/o/s7YCuF1h"
-												   class="icon solid style1 fa-comment"
-												   target="_blank" rel="noopener">
-												  <span class="label">KakaoTalk</span>
-												</a>
-											  </li>
-											</ul>
-											
-											<ul class="icons">
-											  <li>
-												<a href="https://www.instagram.com/jjuuun_l/"
-												   class="icon brands style2 fa-instagram"
-												   target="_blank" rel="noopener">
-												  <span class="label">Instagram</span>
-												</a>
-											  </li>
-											
-											  <li>
-												<a href="https://www.linkedin.com/in/seung-jun-lee-504a942b9/"
-												   class="icon brands style2 fa-linkedin-in"
-												   target="_blank" rel="noopener">
-												  <span class="label">LinkedIn</span>
-												</a>
-											  </li>
-											
-											  <li>
-												<a href="https://github.com/seungjun960"
-												   class="icon brands style2 fa-github"
-												   target="_blank" rel="noopener">
-												  <span class="label">GitHub</span>
-												</a>
-											  </li>
-											
-											  <li>
-												<a href="https://open.kakao.com/o/s7YCuF1h"
-												   class="icon solid style2 fa-comment"
-												   target="_blank" rel="noopener">
-												  <span class="label">KakaoTalk</span>
-												</a>
-											  </li>
-											</ul>
-										</div>
-									</div>
+		
+							<h3>Folder Structure Table</h3>
+							<div class="table-wrapper">
+							<table class="alt">
+							<thead>
+							<tr>
+							<th>Path</th>
+							<th>Role</th>
+							<th>Notes</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+							<td><code>/index.html</code></td>
+							<td>Main feed (tiles)</td>
+							<td>Entry point, tile grid, link preview meta</td>
+							</tr>
+							<tr>
+							<td><code>/generic.html</code></td>
+							<td>Post detail template</td>
+							<td>One page per post (image + text)</td>
+							</tr>
+							<tr>
+							<td><code>/elements.html</code></td>
+							<td>Dev notes / documentation</td>
+							<td>Build process, code snippets, tables</td>
+							</tr>
+							<tr>
+							<td><code>/assets/css/main.css</code></td>
+							<td>Global styling</td>
+							<td>Typography, layout, responsive rules</td>
+							</tr>
+							<tr>
+							<td><code>/assets/js/main.js</code></td>
+							<td>UI interactions</td>
+							<td>Menu behavior, effects, utilities</td>
+							</tr>
+							<tr>
+							<td><code>/images/</code></td>
+							<td>Media assets</td>
+							<td>Thumbnails, hero images, icons, OG image</td>
+							</tr>
+							</tbody>
+							</table>
+							</div>
 
+							</div>
 
-							<!-- Table -->
-								<section>
-									<h2>Table</h2>
-									<h3>Default</h3>
-									<div class="table-wrapper">
-										<table>
-											<thead>
-												<tr>
-													<th>Name</th>
-													<th>Description</th>
-													<th>Price</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>Item One</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Two</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Three</td>
-													<td> Morbi faucibus arcu accumsan lorem.</td>
-													<td>29.99</td>
-												</tr>
-												<tr>
-													<td>Item Four</td>
-													<td>Vitae integer tempus condimentum.</td>
-													<td>19.99</td>
-												</tr>
-												<tr>
-													<td>Item Five</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
-													<td>29.99</td>
-												</tr>
-											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="2"></td>
-													<td>100.00</td>
-												</tr>
-											</tfoot>
-										</table>
-									</div>
+							<!-- RIGHT -->
+							<div class="col-6 col-12-medium">
+
+							
+							<h3>Page Build</h3>
+							<ol>
+							<li>Define content structure (HTML)</li>
+							<li>Establish responsive layout (CSS)</li>
+							<li>Add minimal interaction (JavaScript)</li>
+							<li>Validate mobile-first behavior</li>
+							<li>Deploy via GitHub Pages</li>
+							<li>Iterate based on real user behavior</li>
+							</ol>
+
+							<h3>Social & Contact</h3>
+
+							<ul class="icons">
+							<li>
+							<a href="https://www.instagram.com/jjuuun_l/"
+							class="icon brands style1 fa-instagram"
+							target="_blank" rel="noopener">
+							<span class="label">Instagram</span>
+							</a>
+							</li>
+
+							<li>
+							<a href="https://www.linkedin.com/in/seung-jun-lee-504a942b9/"
+							class="icon brands style1 fa-linkedin-in"
+							target="_blank" rel="noopener">
+							<span class="label">LinkedIn</span>
+							</a>
+							</li>
+
+							<li>
+							<a href="https://github.com/seungjun960"
+							class="icon brands style1 fa-github"
+							target="_blank" rel="noopener">
+							<span class="label">GitHub</span>
+							</a>
+							</li>
+
+							<li>
+							<a href="https://open.kakao.com/o/s7YCuF1h"
+							class="icon solid style1 fa-comment"
+							target="_blank" rel="noopener">
+							<span class="label">KakaoTalk</span>
+							</a>
+							</li>
+							</ul>
+
+							<ul class="icons">
+							<li>
+							<a href="https://www.instagram.com/jjuuun_l/"
+							class="icon brands style2 fa-instagram"
+							target="_blank" rel="noopener">
+							<span class="label">Instagram</span>
+							</a>
+							</li>
+
+							<li>
+							<a href="https://www.linkedin.com/in/seung-jun-lee-504a942b9/"
+							class="icon brands style2 fa-linkedin-in"
+							target="_blank" rel="noopener">
+							<span class="label">LinkedIn</span>
+							</a>
+							</li>
+
+							<li>
+							<a href="https://github.com/seungjun960"
+							class="icon brands style2 fa-github"
+							target="_blank" rel="noopener">
+							<span class="label">GitHub</span>
+							</a>
+							</li>
+
+							<li>
+							<a href="https://open.kakao.com/o/s7YCuF1h"
+							class="icon solid style2 fa-comment"
+							target="_blank" rel="noopener">
+							<span class="label">KakaoTalk</span>
+							</a>
+							</li>
+							</ul>
+
+							</div>
+							</div>
+							</section>
+  
 
 	<!-- Footer -->
 	<footer id="footer">
