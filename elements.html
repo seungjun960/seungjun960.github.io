@@ -9,28 +9,73 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
 
 		<style>
 			/* elements.html에서만 적용시캬보자 */
 			body.page-elements .devnote p {
-			  margin: 0 0 0.8em 0;      /* 문단 간격: 과하지 않게 */
-			  line-height: 1.7;         /* 읽기 좋게 */
+			  margin: 0 0 0.8em 0;     
+			  line-height: 1.7;         
 			}
 		  
 			body.page-elements .devnote .tight {
-			  margin-bottom: 0.35em;    /* "한칸 띄운 느낌" */
+			  margin-bottom: 0.35em;   
 			}
 		  
 			body.page-elements .devnote ul {
-			  margin: 0.2em 0 1em 1.2em; /* 리스트 기본 간격 조절 */
+			  margin: 0.2em 0 1em 1.2em; 
 			}
 		  
 			body.page-elements .devnote li {
-			  margin: 0.35em 0;         /* 항목 간격 */
+			  margin: 0.35em 0;        
 			}
 		  
 			body.page-elements .devnote .why-list li {
 			  margin: 0.25em 0;         /* Why?는 더 촘촘하게 */
+			}
+		  </style>
+
+		  <style>
+			body.page-elements pre[class*="language-"] {
+			  border-radius: 12px;
+			  padding: 1.25em 1.35em;
+			  margin: 1em 0 1.4em 0;
+			  overflow-x: auto;
+			  font-size: 0.92em;
+			  line-height: 1.65;
+			}
+		  
+			body.page-elements code[class*="language-"],
+			body.page-elements pre[class*="language-"] {
+			  font-family: "JetBrains Mono", "Fira Code", Consolas, Monaco, "Courier New", monospace;
+			}
+		  
+		
+			body.page-elements .code-caption {
+			  margin: 0.8em 0 0.35em 0;
+			  font-size: 0.85em;
+			  opacity: 0.8;
+			}
+
+			body.page-elements pre[class*="language-"],
+			body.page-elements code[class*="language-"] {
+			background: #2B2F36 !important;
+  			border: none !important;            
+  			color: inherit !important;    
+ 			 font-family: "JetBrains Mono","Fira Code",Consolas,Monaco,"Courier New",monospace !important;
+			}
+
+		
+			body.page-elements pre[class*="language-"] code {
+  			padding: 0 !important;             
+  			line-height: 1.65 !important;
+			}
+
+	
+			body.page-elements :not(pre) > code[class*="language-"] {
+ 			padding: 0.15em 0.4em !important;
+  			border-radius: 6px !important;
 			}
 		  </style>
 
@@ -83,22 +128,22 @@
 							<!-- Text -->
 							<section class="devnote">
 								<h2>Static Web Development Notes</h2>
-								<p class="tight">제작 목적 : 인스타 피드에 올리기 애매한건 여기 모아둠ㅋㅋ</p>
+								<p class="tight">인스타 피드에 올리기 애매한건 여기 모아둠ㅎ</p>
 								<hr />
 							  
 								<h3>프로젝트 개요</h3>
 								<p class="tight">
-								  본 웹페이지는 GitHub 기반의 개인 정적 웹 아카이브로,
+								  본 웹페이지는 GitHub 기반 아카이브로,
 								  사진 | 기록 | 일상 로그를 인스타 피드가 아닌 개인 웹에 저장하기 위해 제작했다.
 								</p>
 							  
 								<p class="tight">
 								  CMS/Framework(React, Vue)를 사용하지 않고,
-								  HTML / CSS / JavaScript로 구현한 Static Web 이다.
+								  HTML / CSS / JavaScript로 구현한 Static Web
 								</p>
 							    <p></p>
 
-								<p class="tight"><b>Why?</b></p>
+								<p class="tight"><b>Advantages</b></p>
 								<ul class="why-list">
 								  <li>완전한 사용자 통제 (UI, 콘텐츠 구조, 배포 방식)</li>
 								  <li>반응형 웹 (PC / Tablet / Mobile)</li>
@@ -109,7 +154,7 @@
 
 								<p></p>
 								<h2>Architecture</h2>
-								<h3>1. 기술 스택 요약</h3>
+								<h2>1. 기술 스택 요약</h2>
 							  
 								<div class="table-wrapper">
 								  <table class="alt">
@@ -133,26 +178,179 @@
 							  </section>
 
 
-									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<hr />
-									<h3>Blockquote</h3>
-									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-									<h3>Preformatted</h3>
-									<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 								</section>
 
+								<hr />
+								
+
 							<!-- Lists -->
+
+							<section class="devnote">
+								<h2>Code Structure [1] 최신 게시물 자동 상단 정렬</h2>
+							  
+								<p>
+									본 Web의 경우 Static이라 DB가 존재하지 않는다.<br>
+									따라서 <span class="small-bold">업로딩 및 수정 순서 → 최신</span>이라는 문제를
+									<span class="small-bold">DOM 조작</span>으로 해결
+								  </p>
+							  
+								  <p>
+									<span class="small-bold">안전한 방식</span>
+								  </p>
+								  
+								  <ul>
+									<li>타일을 통째로 뒤집는 방식 채택</li>
+								  </ul>
+
+
+							  
+								<p class="code-caption">HTML</p>
+								<pre><code class="language-html">&lt;!-- index.html --&gt;
+							  &lt;section class="tiles" id="tiles"&gt;
+								&lt;!-- article들이 여기에 나열됨 --&gt;
+							  &lt;/section&gt;
+							  </code></pre>
+							  
+								<p class="code-caption">JavaScript</p>
+								<pre><code class="language-javascript">document.addEventListener('DOMContentLoaded', () =&gt; {
+								const tiles = document.getElementById('tiles');
+								const items = Array.from(tiles.children);
+							  
+								// 최신 게시물이 위로 오도록 역순 재배치
+								items.reverse().forEach(el =&gt; tiles.appendChild(el));
+							  });
+							  </code></pre>
+							  
+								<h4>Main Point</h4>
+								<ul>
+								  <li>작성자가 코드 추가한 순서 → 게시 순서</li>
+								  <li>날짜 파싱이나 메타데이터 관리 불필요</li>
+								  <li>로직 단순, 디버깅 쉬움</li>
+								</ul>
+
+								<p class="tight">
+									또한, 본 구현에서는 DOM 접근 전 Guard Logic을 포함하여
+									페이지 구조 변경 시에도 Run Time Error가 발생하지 않도록 설계했다.
+								  </p>
+								  
+								  <pre class="line-numbers"><code class="language-javascript">
+								  document.addEventListener('DOMContentLoaded', () => {
+									const tiles = document.getElementById('tiles');
+									if (!tiles) return;
+								  
+									const items = Array.from(tiles.children);
+									items.reverse().forEach(el => tiles.appendChild(el));
+								  });
+								  </code></pre>
+
+								  <hr />
+
+
+
+							  <section class="devnote">
+								<h2>Code Structure [2] 스크롤 고정 미디어 플레이어(UI 지속성 확보)</h2>
+							  
+							  
+								<p>
+									게시물 열람도중 다른 HTML 페이지로 이동하더라도
+									음악 재생이 중단되지 않도록
+									<span class="small-bold">상단 고정 미디어 플레이어</span>를 도입
+								  </p>
+							  
+								<p>
+								  사용자는 게시물을 스크롤하거나
+								  다른 섹션으로 이동해도
+								  동일한 위치에서 음악 제어가능
+								</p>
+							  
+
+								<p></p><p></p><p></p>
+
+								<p class="code-caption">CSS 3</p>
+								<pre><code class="language-css">#spotify-float {
+								position: fixed;
+								top: 20px;
+								right: 90px;
+								z-index: 9999;
+							  }</code></pre>
+							  
+								<p>
+								  <code>position: fixed</code>를 사용하여
+								  스크롤과 무관하게 플레이어 위치를 고정,
+								  메뉴 레이어와의 충돌을 방지하기 위해
+								  <code>z-index</code>를 지정하였다.
+								</p>
+								<br>
+
+								<h4>Main Point</h4>
+								<ul>
+								  <li>스크롤 중 음악 제어 가능</li>
+								  <li>콘텐츠 끊김 방지</li>
+								  <li>Static 웹에서 미디어 UX 구현</li>
+								</ul>
+								
+							  </section>
+							  <hr />
+
+
+
+
+							  <section class="devnote">
+								<h2>접근 방식: 반응형 Grid 기반 피드 레이아웃 설계</h2>
+							  
+								<p>
+								  본 프로젝트의 메인 화면은
+								  이미지 중심의 콘텐츠를 효율적으로 보여주기 위해
+								  <strong>카드(Tile) 기반 피드 레이아웃</strong>으로 설계되었다.
+								</p>
+							  
+								<p>
+								  단순히 화면을 축소·확대하는 반응형이 아니라,
+								  디바이스 해상도에 따라
+								  <strong>열(Column) 개수가 자연스럽게 변경</strong>되는 구조를 목표로 했다.
+								</p>
+							  
+								<h3>설계 판단</h3>
+								<ul>
+								  <li>모바일 환경에서도 피드 밀도를 유지하기 위해 3열 기준 채택</li>
+								  <li>Tablet / Desktop에서 점진적으로 열 수 증가</li>
+								  <li>JavaScript 없이 CSS만으로 레이아웃 제어</li>
+								</ul>
+							  
+								<hr />
+							  
+								<h3>CSS (Grid 기반 레이아웃)</h3>
+								<pre><code class="language-css">.tiles {
+								display: grid;
+								grid-template-columns: repeat(3, 1fr);
+								gap: 1.2rem;
+							  }
+							  
+							  @media screen and (min-width: 980px) {
+								.tiles {
+								  grid-template-columns: repeat(5, 1fr);
+								}
+							  }</code></pre>
+							  
+								<p>
+								  Grid를 사용함으로써
+								  각 타일의 크기와 간격을 일관되게 유지할 수 있었으며,
+								  디바이스별 분기 처리도 직관적으로 관리할 수 있었다.
+								</p>
+							  
+								<hr />
+							  
+								<h3>결과</h3>
+								<ul>
+								  <li>모바일·PC 모두에서 균형 잡힌 피드 구성</li>
+								  <li>추가 게시물에도 레이아웃 붕괴 없음</li>
+								  <li>유지보수 비용 최소화</li>
+								</ul>
+							  </section>
+
+
+							<!-- Lists -->
+
 								<section>
 									<h2>Lists</h2>
 									<div class="row">
@@ -383,118 +581,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 									</div>
 								</section>
 
-							<!-- Buttons -->
-								<section>
-									<h3>Buttons</h3>
-									<ul class="actions">
-										<li><a href="#" class="button primary">Primary</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button large">Large</a></li>
-										<li><a href="#" class="button">Default</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-									<ul class="actions fit">
-										<li><a href="#" class="button primary fit">Fit</a></li>
-										<li><a href="#" class="button fit">Fit</a></li>
-										<li><a href="#" class="button fit">Fit</a></li>
-									</ul>
-									<ul class="actions fit small">
-										<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-										<li><a href="#" class="button fit small">Fit + Small</a></li>
-										<li><a href="#" class="button fit small">Fit + Small</a></li>
-									</ul>
-									<ul class="actions">
-										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-upload">Icon</a></li>
-										<li><a href="#" class="button icon solid fa-save">Icon</a></li>
-									</ul>
-									<ul class="actions">
-										<li><span class="button primary disabled">Disabled</span></li>
-										<li><span class="button disabled">Disabled</span></li>
-									</ul>
-								</section>
-
-							<!-- Form -->
-								<section>
-									<h2>Form</h2>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall">
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-											</div>
-											<div class="col-12">
-												<select name="demo-category" id="demo-category">
-													<option value="">- Category -</option>
-													<option value="1">Manufacturing</option>
-													<option value="1">Shipping</option>
-													<option value="1">Administration</option>
-													<option value="1">Human Resources</option>
-												</select>
-											</div>
-											<div class="col-4 col-12-small">
-												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-												<label for="demo-priority-low">Low</label>
-											</div>
-											<div class="col-4 col-12-small">
-												<input type="radio" id="demo-priority-normal" name="demo-priority">
-												<label for="demo-priority-normal">Normal</label>
-											</div>
-											<div class="col-4 col-12-small">
-												<input type="radio" id="demo-priority-high" name="demo-priority">
-												<label for="demo-priority-high">High</label>
-											</div>
-											<div class="col-6 col-12-small">
-												<input type="checkbox" id="demo-copy" name="demo-copy">
-												<label for="demo-copy">Email me a copy</label>
-											</div>
-											<div class="col-6 col-12-small">
-												<input type="checkbox" id="demo-human" name="demo-human" checked>
-												<label for="demo-human">Not a robot</label>
-											</div>
-											<div class="col-12">
-												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-											</div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" value="Send Message" class="primary" /></li>
-													<li><input type="reset" value="Reset" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</section>
-
-							<!-- Image -->
-								<section>
-									<h2>Image</h2>
-									<h3>Fit</h3>
-									<div class="box alt">
-										<div class="row gtr-uniform">
-											<div class="col-12"><span class="image fit"><img src="images/pic13.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-										</div>
-									</div>
-									<h3>Left &amp; Right</h3>
-									<p><span class="image left"><img src="images/pic14.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									<p><span class="image right"><img src="images/pic15.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-								</section>
-
-						</div>
-					</div>
-
+				
 	<!-- Footer -->
 	<footer id="footer">
 		<div class="inner">
@@ -571,6 +658,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 
 	</body>
 </html>

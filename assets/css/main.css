@@ -3462,3 +3462,10 @@ body, input, select, textarea {
 	display: block;
   }
 
+  body.page-elements .devnote .small-bold {
+	font-weight: 600;        /* strong(700~900)보다 가볍게 */
+	font-size: 0.95em;       /* 본문보다 살짝 작게 */
+	letter-spacing: -0.01em;
+	color: #2f2f2f;          /* 과도한 대비 방지 */
+  }
+
