@@ -8,7 +8,7 @@
     btn.dataset.bgmBound = '1';
   
     function setUI(isPlaying) {
-      btn.textContent = isPlaying ? '❚❚ ❚❚' : '▶︎ 🎧';
+      btn.textContent = isPlaying ? '❚❚ STOP' : '▶︎ 🎧';
       btn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
     }
   
