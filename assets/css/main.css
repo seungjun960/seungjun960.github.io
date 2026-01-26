@@ -3463,9 +3463,39 @@ body, input, select, textarea {
   }
 
   body.page-elements .devnote .small-bold {
-	font-weight: 600;        /* strong(700~900)보다 가볍게 */
-	font-size: 0.95em;       /* 본문보다 살짝 작게 */
+	font-weight: 600;      
+	font-size: 0.95em;    
 	letter-spacing: -0.01em;
-	color: #2f2f2f;          /* 과도한 대비 방지 */
+	color: #2f2f2f;         
+  }
+
+
+  @media screen and (max-width: 736px) {
+
+	body.page-elements .devnote {
+	  font-size: 0.95em;
+	}
+  
+	body.page-elements .devnote p {
+	  margin-bottom: 0.9em;
+	  line-height: 1.65;
+	}
+  
+	body.page-elements .devnote h2 {
+	  margin-bottom: 1em;
+	}
+  
+	body.page-elements .devnote h3,
+	body.page-elements .devnote h4 {
+	  margin-bottom: 0.6em;
+	}
+  
+	body.page-elements .devnote ul {
+	  margin-left: 1em;
+	}
+  
+	body.page-elements .devnote li {
+	  line-height: 1.55;
+	}
   }
 
