@@ -3499,3 +3499,14 @@ body, input, select, textarea {
 	}
   }
 
+@media screen and (max-width: 980px) {
+	body.page-elements h1 br,
+	body.page-elements h2 br,
+	body.page-elements h3 br,
+	body.page-elements h4 br,
+	body.page-elements h5 br,
+	body.page-elements h6 br {
+	  display: inline !important;
+	}
+  }
+
