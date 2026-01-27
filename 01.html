@@ -1,159 +1,77 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-    <title>Seungjun Notes & Archive</title>
-    <meta property="og:description" content="개인 기록 · 사진 · 일상" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
 
-    <!-- ⚠️ 이 스타일은 아래 4)에서 main.css로 옮기는 걸 추천 -->
-    <style>
-      @media screen and (max-width: 736px) {
-        .photo-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.8rem;
-        }
-        .photo-grid .image.main { margin: 0; }
-        .photo-grid .post-text {
-          grid-column: 1 / -1;
-          margin: 0.4em 0 1.2em 0;
-          font-size: 0.95em;
-        }
-        .photo-grid img { width: 100%; height: auto; display: block; }
-      }
-    </style>
+<body class="is-preload">
+  <div id="wrapper">
 
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-  </head>
-
-  <body class="is-preload">
-    <div id="wrapper">
-
-      <!-- Header -->
-      <header id="header">
-        <div class="inner">
-          <nav>
-            <ul>
-              <li><a href="#menu">Menu</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
-      <!-- Menu -->
-      <nav id="menu">
-        <h2>Menu</h2>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="generic.html">사진전</a></li>
-          <li><a href="elements.html">제작 과정</a></li>
-        </ul>
-      </nav>
-
-      <!-- Main -->
-      <div id="main">
-        <div class="inner">
-
-          <!-- ===== Post 1 : Images 1~7 ===== -->
-          <div class="photo-grid">
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_1.jpg" alt="post1-1" />
-              </span>
-              <p class="post-text">오후2시 주문진 해변에서</p>
-            </div>
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_2.jpg" alt="post1-2" />
-              </span>
-              <p class="post-text"></p>
-            </div>
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_3.jpg" alt="post1-3" />
-              </span>
-              <p class="post-text"></p>
-            </div>
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_4.jpg" alt="post1-4" />
-              </span>
-              <p class="post-text"></p>
-            </div>
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_5.jpg" alt="post1-5" />
-              </span>
-              <p class="post-text"></p>
-            </div>
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_6.jpg" alt="post1-6" />
-              </span>
-              <p class="post-text"></p>
-            </div>
-
-            <div class="photo-item">
-              <span class="image main">
-                <img src="images/p_post1_7.jpg" alt="post1-7" />
-              </span>
-              <p class="post-text"></p>
-            </div>
-
-          </div>
-          <!-- ===== /Post 1 ===== -->
-
-        </div>
+    <!-- 헤더는 "Menu 버튼만" (index에서 헤더 고정하고 싶다면 최소화가 안전) -->
+    <header id="header">
+      <div class="inner">
+        <nav>
+          <ul><li><a href="#menu">Menu</a></li></ul>
+        </nav>
       </div>
+    </header>
 
-      <!-- Footer (⚠️ 반드시 #main 밖) -->
-      <footer id="footer">
-        <div class="inner">
-          <section>
-            <h2>Direct Message💬</h2>
-            <p style="margin: 0 0 1em 0;">메시지는 Google Form을 통해 전달됩니다✈️</p>
-            <ul class="actions">
-              <li>
-                <a class="button primary"
-                   href="https://docs.google.com/forms/d/e/1FAIpQLSdHrK2CmoPkn7yE1XjXq_ISMcgC1-8AOyc9SgyMsTlmx_Phew/viewform?usp=dialog"
-                   target="_blank" rel="noopener">Send</a>
-              </li>
-            </ul>
-          </section>
+    <nav id="menu">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="generic.html">사진전</a></li>
+        <li><a href="elements.html">제작 과정</a></li>
+      </ul>
+    </nav>
 
-          <section>
-            <h2>Follow</h2>
-            <ul class="icons">
-              <li><a href="https://www.instagram.com/jjuuun_l/" class="icon brands style2 fa-instagram" target="_blank" rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
-              <li><a href="https://www.linkedin.com/in/seung-jun-lee-504a942b9/?trk=opento_sprofile_topcard" class="icon brands style2 fa-linkedin-in" target="_blank" rel="noopener"><span class="label">LinkedIn</span></a></li>
-              <li><a href="https://github.com/seungjun960/seungjun960.github.io/tree/main" class="icon brands style2 fa-github" target="_blank" rel="noopener"><span class="label">GitHub</span></a></li>
-              <li><a href="https://open.kakao.com/o/s7YCuF1h" class="icon solid style2 fa-comment" target="_blank"><span class="label">KakaoTalk</span></a></li>
-            </ul>
-          </section>
+    <div id="main">
+      <div class="inner">
 
-          <ul class="copyright">
-            <li>&copy; All rights reserved</li><li>Design: <a href="">SeungJun, Lee</a></li>
-          </ul>
+        <div class="photo-grid">
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_1.jpg" alt="post1-1" /></span>
+            <p class="post-text">오후2시 주문진 해변에서</p>
+          </div>
+
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_2.jpg" alt="post1-2" /></span>
+            <p class="post-text"></p>
+          </div>
+
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_3.jpg" alt="post1-3" /></span>
+            <p class="post-text"></p>
+          </div>
+
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_4.jpg" alt="post1-4" /></span>
+            <p class="post-text"></p>
+          </div>
+
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_5.jpg" alt="post1-5" /></span>
+            <p class="post-text"></p>
+          </div>
+
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_6.jpg" alt="post1-6" /></span>
+            <p class="post-text"></p>
+          </div>
+
+          <div class="photo-item">
+            <span class="image main"><img src="images/p_post1_7.jpg" alt="post1-7" /></span>
+            <p class="post-text"></p>
+          </div>
         </div>
-      </footer>
 
+      </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <!-- SPA 쓸 거면 여기도 포함(페이지 직접 진입 대응) -->
-    <script src="assets/js/spa.js"></script>
-  </body>
+  </div>
+
+  <!-- scripts: footer는 index에만 있어도, 각 페이지도 main.js는 있어야 메뉴 동작 정상 -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

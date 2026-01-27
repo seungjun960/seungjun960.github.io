@@ -3521,7 +3521,7 @@ body, input, select, textarea {
 	}
   }
 
-  /* Post pages: mobile 2-column photo grid */
+ /* Post pages: mobile 2-column photo grid */
 @media screen and (max-width: 736px) {
 	.photo-grid {
 	  display: grid;
