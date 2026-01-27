@@ -3543,3 +3543,49 @@ body, input, select, textarea {
 	  display: block;
 	}
   }
+
+
+
+
+  .ig-slider {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto 1.2rem;
+	border-radius: 14px;
+	overflow: hidden;
+	background: rgba(0,0,0,0.06);
+  }
+  
+  .ig-track {
+	display: flex;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+  }
+  .ig-track::-webkit-scrollbar { display: none; }
+  
+  .ig-slide {
+	flex: 0 0 100%;
+	scroll-snap-align: start;
+	margin: 0;
+  }
+  
+  .ig-slide img {
+	width: 100%;
+	display: block;
+	aspect-ratio: 4 / 5;   /* 정사각(인스타 느낌). 4/5로 바꾸면 피드 느낌 */
+	object-fit: cover;
+  }
+  
+  .post-body {
+	max-width: 900px;
+	margin: 0 auto;
+  }
+  
+  .post-title { margin: 0 0 0.6rem 0; }
+  
+  @media screen and (max-width: 736px) {
+	.ig-slider { border-radius: 12px; }
+	.post-body { padding: 0 0.2rem; }
+  }
