@@ -3618,6 +3618,7 @@ body, input, select, textarea {
 	display: block;
   }
   
+  
   /* dots (이미지 아래 중앙) */
   .ig-dots {
 	display: flex;
@@ -3639,3 +3640,4 @@ body, input, select, textarea {
 	background: rgba(0, 0, 0, 0.75);
 	transform: scale(1.2);
   }
+
