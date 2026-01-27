@@ -29,7 +29,9 @@
     return next.innerHTML;
   }
 
-  function afterSwap() {
+    function afterSwap() {
+    document.body.classList.remove('is-menu-visible');
+    window.scrollTo(0, 0);
     // 메뉴 닫기
     document.body.classList.remove('is-menu-visible');
     // 모바일 타일 잔상 제거

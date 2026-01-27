@@ -3588,56 +3588,23 @@ body, input, select, textarea {
   }
 
 
-
-/* ===== IG-style slider + dots ===== */
-.ig-slider {
-	position: relative;
-	overflow: hidden;
-	border-radius: 12px;
+/* IG swipe hint (text under slider) */
+.ig-swipe-hint{
+	margin: 10px 0 18px 0;
+	text-align: center;
+	font-size: 0.9em;
+	letter-spacing: 0.06em;
+	opacity: 0.75;
+	user-select: none;
   }
   
-  .ig-track {
-	display: flex;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	-webkit-overflow-scrolling: touch;
-	scrollbar-width: none;
+  .ig-swipe-hint .arrow{
+	display: inline-block;
+	margin: 0 6px;
+	opacity: 0.9;
   }
   
-  .ig-track::-webkit-scrollbar { display: none; }
-  
-  .ig-slide {
-	flex: 0 0 100%;
-	scroll-snap-align: start;
-	margin: 0;
+  .ig-swipe-hint .word{
+	font-weight: 600;
+	text-transform: uppercase;
   }
-  
-  .ig-slide img {
-	width: 100%;
-	height: auto;
-	display: block;
-  }
-  
-  
-  /* dots (이미지 아래 중앙) */
-  .ig-dots {
-	display: flex;
-	gap: 6px;
-	justify-content: center;
-	align-items: center;
-	margin-top: 10px;
-  }
-  
-  .ig-dots span {
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: rgba(0, 0, 0, 0.25);
-	transition: background 0.25s ease, transform 0.25s ease;
-  }
-  
-  .ig-dots span.is-active {
-	background: rgba(0, 0, 0, 0.75);
-	transform: scale(1.2);
-  }
-

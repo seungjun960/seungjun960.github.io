@@ -1,18 +1,17 @@
 /* Created by. SeungJun Lee */
 
 (function ($) {
-
 	var $window = $(window),
-		$body = $('body');
+	  $body = $('body');
   
 	// Breakpoints
 	breakpoints({
-	  xlarge:  ['1281px', '1680px'],
-	  large:   ['981px',  '1280px'],
-	  medium:  ['737px',  '980px'],
-	  small:   ['481px',  '736px'],
-	  xsmall:  ['361px',  '480px'],
-	  xxsmall: [null,     '360px']
+	  xlarge: ['1281px', '1680px'],
+	  large: ['981px', '1280px'],
+	  medium: ['737px', '980px'],
+	  small: ['481px', '736px'],
+	  xsmall: ['361px', '480px'],
+	  xxsmall: [null, '360px']
 	});
   
 	// Initial animation
@@ -23,8 +22,7 @@
 	});
   
 	// Touch
-	if (browser.mobile)
-	  $body.addClass('is-touch');
+	if (browser.mobile) $body.addClass('is-touch');
   
 	// Menu
 	var $menu = $('#menu');
@@ -34,7 +32,7 @@
 	$menu._lock = function () {
 	  if ($menu._locked) return false;
 	  $menu._locked = true;
-	  setTimeout(() => $menu._locked = false, 350);
+	  setTimeout(() => ($menu._locked = false), 350);
 	  return true;
 	};
   
@@ -52,14 +50,18 @@
   
 	$menu
 	  .appendTo($body)
-	  .on('click', function (e) { e.stopPropagation(); })
+	  .on('click', function (e) {
+		e.stopPropagation();
+	  })
 	  .on('click', 'a', function (e) {
 		var href = $(this).attr('href');
 		e.preventDefault();
 		e.stopPropagation();
+  
 		$menu._hide();
 		if (href === '#menu') return;
-		//  SPA가 처리 → location 이동 제거
+  
+		// SPA가 처리 → location 이동 제거
 	  })
 	  .append('<a class="close" href="#menu">Close</a>');
   
@@ -75,11 +77,9 @@
 	  .on('keydown', function (e) {
 		if (e.keyCode === 27) $menu._hide();
 	  });
-  
   })(jQuery);
   
-  
-  /*  모바일 타일 오버레이 (단 하나만 유지) */
+  /* 모바일 타일 오버레이 (단 하나만 유지) */
   (function () {
 	const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 	if (!isTouch) return;
@@ -94,20 +94,44 @@
 	  link.addEventListener('click', (e) => {
 		if (article.classList.contains('is-active')) return;
 		e.preventDefault();
+  
 		articles.forEach(a => a.classList.remove('is-active'));
 		article.classList.add('is-active');
 	  });
 	});
   
-	document.addEventListener('touchstart', (e) => {
-	  if (e.target.closest('.tiles article')) return;
-	  articles.forEach(a => a.classList.remove('is-active'));
-	}, { passive: true });
+	document.addEventListener(
+	  'touchstart',
+	  (e) => {
+		if (e.target.closest('.tiles article')) return;
+		articles.forEach(a => a.classList.remove('is-active'));
+	  },
+	  { passive: true }
+	);
+  })();
+  
+  /* IG dots 기능 사용 안 함: 혹시 남아있는 dot 컨테이너 흔적 제거 */
+  (function () {
+	function cleanupIGDots(root = document) {
+	  // dot 컨테이너가 HTML에 남아있어도 비워서 안 보이게 처리
+	  root.querySelectorAll('.ig-dots').forEach((el) => {
+		el.innerHTML = '';
+	  });
+	}
+  
+	// SPA에서 필요하면 재호출할 수 있게 노출(선택)
+	window.cleanupIGDots = cleanupIGDots;
+  
+	if (document.readyState === 'loading') {
+	  document.addEventListener('DOMContentLoaded', () => cleanupIGDots(document));
+	} else {
+	  cleanupIGDots(document);
+	}
   })();
 
-  /* ===== IG slider dots (create + sync) ===== */
+  /* ===== IG swipe hint (auto insert) ===== */
 (function () {
-	function initIGSlider(root = document) {
+	function initIGSwipeHint(root = document) {
 	  const sliders = root.querySelectorAll('.ig-slider');
 	  if (!sliders.length) return;
   
@@ -115,72 +139,29 @@
 		const track = slider.querySelector('.ig-track');
 		if (!track) return;
   
-		// 구조: <div class="ig-slider">...</div> 다음에 <div class="ig-dots"></div>
-		// 혹시 구조가 달라도 대응
-		const post = slider.closest('.post') || slider.parentElement;
-		const dotsWrap =
-		  post?.querySelector('.ig-dots') ||
-		  slider.nextElementSibling?.classList?.contains('ig-dots')
-			? slider.nextElementSibling
-			: null;
+		const slides = track.querySelectorAll('.ig-slide');
+		if (slides.length <= 1) return; // 사진 1장이면 안내문구 안 붙임
   
-		if (!dotsWrap) return;
+		// 이미 생성돼 있으면 중복 방지
+		if (slider.dataset.swipeHint === '1') return;
+		slider.dataset.swipeHint = '1';
   
-		const slides = Array.from(track.querySelectorAll('.ig-slide'));
-		if (slides.length <= 1) {
-		  dotsWrap.innerHTML = '';
-		  return;
-		}
+		// slider 바로 아래에 안내문구 삽입
+		const hint = document.createElement('div');
+		hint.className = 'ig-swipe-hint';
+		hint.innerHTML = `<span class="arrow">←</span><span class="word">Swipe</span><span class="arrow">→</span>`;
   
-		// 중복 초기화 방지(중요: SPA에서 같은 페이지 여러번 들어갈 때)
-		if (slider.dataset.igInit === '1') return;
-		slider.dataset.igInit = '1';
-  
-		// dots 생성
-		dotsWrap.innerHTML = slides.map((_, i) => `<span data-i="${i}"></span>`).join('');
-		const dots = Array.from(dotsWrap.querySelectorAll('span'));
-  
-		function setActive(idx) {
-		  dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
-		}
-  
-		function updateByScroll() {
-		  const w = track.clientWidth || 1;
-		  const idx = Math.round(track.scrollLeft / w);
-		  setActive(Math.max(0, Math.min(idx, slides.length - 1)));
-		}
-  
-		// 초기
-		setActive(0);
-  
-		// 스크롤 동기화
-		let raf = 0;
-		track.addEventListener('scroll', () => {
-		  cancelAnimationFrame(raf);
-		  raf = requestAnimationFrame(updateByScroll);
-		}, { passive: true });
-  
-		// 점 클릭 이동
-		dotsWrap.addEventListener('click', (e) => {
-		  const dot = e.target.closest('span[data-i]');
-		  if (!dot) return;
-		  const i = Number(dot.dataset.i);
-		  track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
-		});
-  
-		// 리사이즈(가로/세로 회전) 시 정확도 보정
-		window.addEventListener('resize', updateByScroll, { passive: true });
+		// slider 다음에 넣기
+		slider.insertAdjacentElement('afterend', hint);
 	  });
 	}
   
-	// 전역으로 노출 (SPA에서 afterSwap 때 재호출하려고)
-	window.initIGSlider = initIGSlider;
+	window.initIGSwipeHint = initIGSwipeHint;
   
-	// 일반 새로고침 진입 시 1회 실행
 	if (document.readyState === 'loading') {
-	  document.addEventListener('DOMContentLoaded', () => initIGSlider(document));
+	  document.addEventListener('DOMContentLoaded', () => initIGSwipeHint(document));
 	} else {
-	  initIGSlider(document);
+	  initIGSwipeHint(document);
 	}
   })();
   
