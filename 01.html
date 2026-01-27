@@ -9,7 +9,41 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+
+		<style>
+			/* 모바일에서 2열 배치 */
+			@media screen and (max-width: 736px) {
+			  .photo-grid {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0.8rem;
+			  }
+		  
+			  
+			  .photo-grid .image.main {
+				margin: 0;
+			  }
+		  
+			 
+			  .photo-grid .post-text {
+				grid-column: 1 / -1;
+				margin: 0.4em 0 1.2em 0;
+				font-size: 0.95em;
+			  }
+		  
+			  .photo-grid img {
+				width: 100%;
+				height: auto;
+				display: block;
+			  }
+			}
+		  </style>
+		  
+		  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+
+
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -45,19 +79,66 @@
 				</nav>
 
 
-				<!-- Main -->
+					<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<p></p>
-							<h1>Banner Test01</h1>
-							<!-- <span class="image main"><img src="images/pic13.jpg" alt="" /></span> -->
+					
+						<!-- ===== Post 1 : Images 1~7 ===== -->
+						<div class="photo-grid">
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_1.jpg" alt="post1-1" />
+							</span>
+							<p class="post-text">오후2시 주문진 해변에서</p>
+							</div>
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_2.jpg" alt="post1-2" />
+							</span>
+							<p class="post-text"></p>
+							</div>
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_3.jpg" alt="post1-3" />
+							</span>
+							<p class="post-text"></p>
+							</div>
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_4.jpg" alt="post1-4" />
+							</span>
+							<p class="post-text"></p>
+							</div>
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_5.jpg" alt="post1-5" />
+							</span>
+							<p class="post-text"></p>
+							</div>
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_6.jpg" alt="post1-6" />
+							</span>
+							<p class="post-text"></p>
+							</div>
+					
+							<div class="photo-item">
+							<span class="image main">
+								<img src="images/p_post1_7.jpg" alt="post1-7" />
+							</span>
+							<p class="post-text"></p>
 
-
-							
-
+							</div>			
 						</div>
-					</div>
 
+						
+					
 								<!-- Footer -->
 								<footer id="footer">
 									<div class="inner">
