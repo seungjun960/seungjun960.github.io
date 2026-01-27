@@ -3588,23 +3588,39 @@ body, input, select, textarea {
   }
 
 
-/* IG swipe hint (text under slider) */
-.ig-swipe-hint{
-	margin: 10px 0 18px 0;
-	text-align: center;
-	font-size: 0.9em;
-	letter-spacing: 0.06em;
-	opacity: 0.75;
+
+
+
+  .ig-swipe-hint{
+	max-width: 900px;
+	margin: 6px auto 14px;
+	padding: 0 0.2rem;
+	text-align: right;
 	user-select: none;
   }
   
-  .ig-swipe-hint .arrow{
-	display: inline-block;
-	margin: 0 6px;
-	opacity: 0.9;
-  }
+  .ig-swipe-hint .arrow{ display:none; }
   
   .ig-swipe-hint .word{
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45em;
+	padding: 0.55em 0.85em;
+	border-radius: 999px;
+	font-size: 0.72em;
+	letter-spacing: 0.12em;
 	font-weight: 600;
 	text-transform: uppercase;
+	background: rgba(0,0,0,0.06);
+	opacity: 0.85;
+  }
+  
+  .ig-swipe-hint .word::after{
+	content: '↔';
+	opacity: 0.7;
+  }
+
+  @media screen and (max-width: 736px) {
+	.ig-slider { margin: 0 auto 0.45rem; } /* 사진 아래 간격 줄이기 */
+	.ig-swipe-hint { margin-top: 2px; }    /* 더 붙이기 */
   }
