@@ -47,9 +47,21 @@
     const html = await fetchInner(url);
     c.innerHTML = html;
 
+  const isElements = /(^|\/)elements\.html(\?|$)/.test(url);
+  document.body.classList.toggle('page-elements', isElements);
+
+
     if (push) history.pushState({ url }, '', url);
     afterSwap();
+  if (window.Prism && isElements) {
+    if (typeof Prism.highlightAllUnder === 'function') {
+      Prism.highlightAllUnder(c);
+    } else {
+      Prism.highlightAll();
+    }
   }
+}
+
 
   // 최초 state 고정
   if (!history.state || !history.state.url) {
@@ -57,7 +69,7 @@
     history.replaceState({ url: current }, '', current);
   }
 
-  // ✅ 메뉴 클릭은 main.js가 bubble에서 막을 수 있으니 capture 단계에서 먼저 처리
+
   document.addEventListener('click', (e) => {
     const a = e.target.closest('#menu a');
     if (!a) return;
@@ -75,9 +87,9 @@
     e.stopPropagation();
 
     navigate(url, true).catch(() => (location.href = href));
-  }, true); // ✅ capture=true
+  }, true); // capture=true
 
-  // ✅ 타일(.tiles a) 클릭도 SPA 처리 (헤더 고정 유지)
+  // 타일(.tiles a) 클릭도 SPA 처리 (헤더 고정 유지)
   document.addEventListener('click', (e) => {
     const a = e.target.closest('.tiles a');
     if (!a) return;
