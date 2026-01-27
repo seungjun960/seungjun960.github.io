@@ -3520,3 +3520,26 @@ body, input, select, textarea {
 	  min-width: 520px; /* 테이블 레이아웃 유지 */
 	}
   }
+
+  /* Post pages: mobile 2-column photo grid */
+@media screen and (max-width: 736px) {
+	.photo-grid {
+	  display: grid;
+	  grid-template-columns: repeat(2, 1fr);
+	  gap: 0.8rem;
+	}
+  
+	.photo-grid .image.main { margin: 0; }
+  
+	.photo-grid .post-text {
+	  grid-column: 1 / -1;
+	  margin: 0.4em 0 1.2em 0;
+	  font-size: 0.95em;
+	}
+  
+	.photo-grid img {
+	  width: 100%;
+	  height: auto;
+	  display: block;
+	}
+  }
