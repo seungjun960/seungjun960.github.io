@@ -115,6 +115,17 @@
  			padding: 0.15em 0.4em !important;
   			border-radius: 6px !important;
 			}
+
+			/* Code Structure 제목에서만 줄바꿈 허용 */
+			body.page-elements .devnote h2.cs-title {
+				white-space: normal !important;
+			}
+			
+			/* Code Structure h2 안의 <br>만 활성화 */
+			body.page-elements .devnote h2.cs-title br {
+				display: block !important;
+				margin-top: 0.25em;
+			}
 		  </style>
 
 
@@ -223,8 +234,10 @@
 							<!-- Lists -->
 
 							<section class="devnote">
-								<h2>Code Structure [1] <br>
-									최신 게시물 자동 상단 정렬</h2> 
+								<h2 class="cs-title">
+									Code Structure [1] <br>
+									최신 게시물 자동 상단 정렬
+								  </h2>
 							  
 								<p>
 									본 Web의 경우 Static이라 DB가 존재하지 않는다.<br>
@@ -286,8 +299,10 @@
 
 
 							  <section class="devnote">
-								<h2>Code Structure [2]<br>
-									스크롤 고정 미디어 플레이어(UI 지속성 확보)</h2>
+								<h2 class="cs-title">
+									Code Structure [2]<br>
+									스크롤 고정 미디어 플레이어(UI 지속성 확보)
+								  </h2>
 							  
 							  
 								<p>
@@ -326,8 +341,10 @@
 
 
 							  <section class="devnote">
-								<h2>Code Structure [3] <br>
-								반응형 Grid 기반 피드 레이아웃 설계</h2>
+								<h2 class="cs-title">
+									Code Structure [3] <br>
+									반응형 Grid 기반 피드 레이아웃 설계
+								  </h2>
 
 							  
 								<p>
