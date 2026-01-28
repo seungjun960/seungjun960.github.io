@@ -3369,9 +3369,9 @@ body, input, select, textarea {
    BGM 버튼 크기 개선 26.01.14
 ================================ */
 
-/* 기본(PC) */
+
 #musicToggle {
-	font-size: 0.9em;        /* 글자 키움 */
+	font-size: 0.9em;      
 	height: 3.2em;
 	line-height: 3.2em;
 	padding: 0 1.4em;
@@ -3381,7 +3381,7 @@ body, input, select, textarea {
   /* 모바일에서 더 크게 */
   @media screen and (max-width: 736px) {
 	#musicToggle {
-	  font-size: 1em;        /* 손가락 기준 */
+	  font-size: 1em;    
 	  height: 3.6em;
 	  line-height: 3.6em;
 	  padding: 0 1.6em;
@@ -3517,11 +3517,11 @@ body, input, select, textarea {
 	}
   
 	body.page-elements table {
-	  min-width: 520px; /* 테이블 레이아웃 유지 */
+	  min-width: 520px; 
 	}
   }
 
- /* Post pages: mobile 2-column photo grid */
+ 
 @media screen and (max-width: 736px) {
 	.photo-grid {
 	  display: grid;
@@ -3621,12 +3621,11 @@ body, input, select, textarea {
   }
 
   @media screen and (max-width: 736px) {
-	.ig-slider { margin: 0 auto 0.45rem; } /* 사진 아래 간격 줄이기 */
-	.ig-swipe-hint { margin-top: 2px; }    /* 더 붙이기 */
+	.ig-slider { margin: 0 auto 0.45rem; } 
+	.ig-swipe-hint { margin-top: 2px; }    
   }
 
 
-  /* ===== Index tiles: unify banner size everywhere ===== */
 .tiles article > .image {
 	aspect-ratio: 4 / 5;
 	width: 100%;
@@ -3638,4 +3637,13 @@ body, input, select, textarea {
 	height: 100%;
 	object-fit: cover;
 	display: block;
+  }
+
+
+.photo-credit {
+	font-size: 0.65em;         
+	letter-spacing: 0.06em;
+	color: rgba(0, 0, 0, 0.5);
+	margin-top: 0.4em;
+	margin-bottom: 2em;
   }
