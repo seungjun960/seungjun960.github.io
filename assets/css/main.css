@@ -3652,9 +3652,7 @@ p.photo-credit {
   }
 
 
-  @media screen and (max-width: 736px) {
-	p.photo-credit {
-	  font-size: 0.55em !important;
-	}
+  @media screen and (max-width:736px){
+	p.photo-credit{ font-size: 11px !important; }
   }
   
