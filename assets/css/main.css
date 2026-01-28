@@ -3718,15 +3718,17 @@ p.photo-credit {
   
   .tiles article > a .content .posted{
 	position: absolute;
-	left: 50%;
-	bottom: var(--posted-bottom);
-	transform: translateX(-50%);
+	left: 0;               
+	right: 0;
+	bottom: var(--posted-bottom);  
 	margin: 0 !important;
 	line-height: 1.2;
-	width: max-content;
 	white-space: nowrap;
-	text-align: center;
 	z-index: 4;
+  
+	display: flex;           
+	justify-content: center;
+	text-align: center;
   }
   
  
@@ -3754,15 +3756,18 @@ p.photo-credit {
 	}
   
 	.tiles article > a .content .posted{
-	  position: absolute !important;
-	  left: 50% !important;
-	  bottom: var(--posted-bottom) !important;
-	  transform: translateX(-50%) !important;
-	  margin: 0 !important;
-	  width: max-content !important;
-	  white-space: nowrap !important;
-	  text-align: center !important;
-	}
+		position: absolute !important;
+		left: 0 !important;
+		right: 0 !important;
+		bottom: var(--posted-bottom) !important; /* Y축 유지 */
+		margin: 0 !important;
+		white-space: nowrap !important;
+		z-index: 4 !important;
+	  
+		display: flex !important;
+		justify-content: center !important;
+		text-align: center !important;
+	  }
   }
   
   
