@@ -3640,10 +3640,21 @@ body, input, select, textarea {
   }
 
 
-.photo-credit {
-	font-size: 0.65em;         
+
+
+/* all right reserve 부분 글자 크기 조정  */
+p.photo-credit {
+	font-size: 0.6em !important;
 	letter-spacing: 0.06em;
-	color: rgba(0, 0, 0, 0.5);
-	margin-top: 0.4em;
+	color: rgba(0,0,0,0.45);
+	margin-top: 0.3em;
 	margin-bottom: 2em;
   }
+
+
+  @media screen and (max-width: 736px) {
+	p.photo-credit {
+	  font-size: 0.55em !important;
+	}
+  }
+  
