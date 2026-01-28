@@ -3656,3 +3656,40 @@ p.photo-credit {
 	p.photo-credit{ font-size: 5.5px !important; }
   }
   
+
+
+
+  /* 모바일에서 타일 오버레이(글) 배치를 통일: Posted를 아래에 고정 */
+@media screen and (max-width: 736px) {
+
+	.tiles article > a {
+	  justify-content: flex-start;
+	  align-items: flex-start;
+	}
+  
+	/* 제목은 위쪽 */
+	.tiles article > a h2 {
+	  width: 100%;
+	  margin: 0;
+	}
+  
+
+	.tiles article > a .content {
+	  width: 100%;
+	  margin-top: auto;           
+	  max-height: none;           
+	  opacity: 1;      
+	}
+  
+	
+	.tiles article > a .content p:last-child {
+	  margin: 0;                  
+	  font-size: 0.85em;
+	  letter-spacing: 0.06em;
+	}
+  
+	/* 너가 넣어둔 빈 <p></p> 때문에 공간 생기는 거 제거 */
+	.tiles article > a .content p:empty {
+	  display: none;
+	}
+  }
