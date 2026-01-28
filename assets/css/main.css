@@ -3681,14 +3681,14 @@ p.photo-credit {
 
 /* ===============================
    TILE Posted absolute positioning
-   조정 포인트는 :root 변수만 수정
+   위치는 변수로 조절
 ================================ */
 
-/* 조정용 변수 (여기 숫자만 만지면 됨) */
+/* 🔧 조정용 변수 (여기만 만지면 됨) */
 :root{
-	--posted-bottom: 1.1em;   /* 타일 바닥에서 위로 */
+	--posted-bottom: 2.2em;   /* ⬅ 더 위로 올림 (1.1em → 2.2em) */
 	--posted-side:   1.1em;   /* 좌우 여백 */
-	--posted-gap:    0.9em;   /* 빈 p가 만들어주는 시각적 간격 */
+	--posted-gap:    0.9em;   /* 빈 p 간격 */
   }
   
   /* 타일 기준점 */
@@ -3696,13 +3696,13 @@ p.photo-credit {
 	position: relative;
   }
   
-  /* 클릭 영역은 기존 absolute 유지 */
+  /* 클릭 영역 */
   .tiles article > a{
 	position: absolute;
 	inset: 0;
   }
   
-  /* content를 바닥 고정 */
+  /* content를 타일 하단 기준으로 고정 */
   .tiles article > a .content{
 	position: absolute;
 	left: var(--posted-side);
@@ -3711,15 +3711,17 @@ p.photo-credit {
 	margin: 0;
   }
   
-  /* 의도한 빈 p → 고정 스페이서로 사용 */
+  /* 🔧 의도한 빈 p → 고정 높이 스페이서 */
   .tiles article > a .content > p:empty{
 	margin: 0 !important;
 	height: var(--posted-gap);
   }
   
-  /* Posted 문구 자체 흔들림 제거 */
+  /* ✅ Posted 위치 안정화 (중앙 정렬 + 흔들림 제거) */
   .tiles article > a .content .posted{
 	margin: 0 !important;
+	width: 100%;
+	text-align: center;   /* ← 오른쪽 치우침 해결 */
 	line-height: 1.2;
   }
   
