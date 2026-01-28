@@ -3649,9 +3649,7 @@ p.photo-credit {
 	margin-bottom: 2em;
   }
 
-/* all right reserve 부분 글자 크기 조정(Mobile)  */
-  @media screen and (max-width:736px){
-	p.photo-credit{ font-size: 5.5px !important; }
-  }
+	@media screen and (max-width:736px)
+	{ p.photo-credit{ font-size: 5.5px !important; } 
+}
   
-
