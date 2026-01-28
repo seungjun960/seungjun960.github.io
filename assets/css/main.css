@@ -3677,10 +3677,6 @@ p.photo-credit {
 
 
 
-/* adding 2026.01.29 */
-
-/* adding 2026.01.29 */
-
 /* ===============================
    TILE Posted absolute positioning
    위치는 변수로 조절
@@ -3688,8 +3684,9 @@ p.photo-credit {
 
 /* 🔧 조정용 변수 (여기만 만지면 됨) */
 :root{
-	--posted-bottom: 2.2em; /* 더 위로 올리려면 숫자 키워 */
-	--posted-gap:    0.9em; /* 빈 p 간격 */
+	--posted-bottom: 2.2em;   /* ⬅ 더 위로 올림 (1.1em → 2.2em) */
+	--posted-side:   1.1em;   /* 좌우 여백 */
+	--posted-gap:    0.9em;   /* 빈 p 간격 */
   }
   
   /* 타일 기준점 */
@@ -3703,37 +3700,32 @@ p.photo-credit {
 	inset: 0;
   }
   
- 
+  /* content를 타일 하단 기준으로 고정 */
   .tiles article > a .content{
-	position: relative;  
+	position: absolute;
+	left: var(--posted-side);
+	right: var(--posted-side);
+	bottom: var(--posted-bottom);
 	margin: 0;
   }
   
-  
+  /* 🔧 의도한 빈 p → 고정 높이 스페이서 */
   .tiles article > a .content > p:empty{
 	margin: 0 !important;
 	height: var(--posted-gap);
   }
   
-  
+  /* ✅ Posted 위치 안정화 (중앙 정렬 + 흔들림 제거) */
   .tiles article > a .content .posted{
-	position: absolute;
-	left: 0;               
-	right: 0;
-	bottom: var(--posted-bottom);  
 	margin: 0 !important;
+	width: 100%;
+	text-align: center;   /* ← 오른쪽 치우침 해결 */
 	line-height: 1.2;
-	white-space: nowrap;
-	z-index: 4;
-  
-	display: flex;           
-	justify-content: center;
-	text-align: center;
   }
   
- 
-  @media (hover: none) and (pointer: coarse) {
-  
+  /* ===== Mobile FORCE: Posted absolute stick ===== */
+@media (hover: none) and (pointer: coarse) {
+
 	.tiles article{
 	  position: relative !important;
 	}
@@ -3744,7 +3736,10 @@ p.photo-credit {
 	}
   
 	.tiles article > a .content{
-	  position: relative !important;
+	  position: absolute !important;
+	  left: var(--posted-side) !important;
+	  right: var(--posted-side) !important;
+	  bottom: var(--posted-bottom) !important;
 	  margin: 0 !important;
 	  max-height: none !important;
 	  opacity: 1 !important;
@@ -3756,18 +3751,9 @@ p.photo-credit {
 	}
   
 	.tiles article > a .content .posted{
-		position: absolute !important;
-		left: 0 !important;
-		right: 0 !important;
-		bottom: var(--posted-bottom) !important; /* Y축 유지 */
-		margin: 0 !important;
-		white-space: nowrap !important;
-		z-index: 4 !important;
-	  
-		display: flex !important;
-		justify-content: center !important;
-		text-align: center !important;
-	  }
+	  margin: 0 !important;
+	  width: 100% !important;
+	  text-align: center !important;
+	}
   }
-  
   
