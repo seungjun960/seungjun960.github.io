@@ -3656,26 +3656,3 @@ p.photo-credit {
 	p.photo-credit{ font-size: 5.5px !important; }
   }
 
-
-  @media screen and (max-width: 736px) {
-
-	/* tiles 내 카드 링크를 세로 레이아웃으로 */
-	.tiles article a {
-	  display: flex;
-	  flex-direction: column;
-	  height: 100%;
-	}
-  
-	/* content 영역도 세로로 */
-	.tiles article a .content {
-	  display: flex;
-	  flex-direction: column;
-	  flex: 1;
-	}
-  
-	/* Posted는 항상 아래로 밀어붙임 */
-	.tiles article a .content .posted {
-	  margin-top: auto;      /* 핵심 */
-	}
-  }
-  
