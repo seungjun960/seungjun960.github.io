@@ -3662,7 +3662,7 @@ body, input, select, textarea {
 
 /* all right reserve 부분 글자 크기 조정  */
 p.photo-credit {
-	font-size: 0.9em !important;
+	font-size: 1.1em !important;
 	letter-spacing: 0.06em;
 	color: rgba(0,0,0,0.45);
 	margin-top: 0.3em;
