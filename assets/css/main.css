@@ -3717,11 +3717,46 @@ p.photo-credit {
 	height: var(--posted-gap);
   }
   
-  /* ✅ Posted 위치 안정화 (중앙 정렬 + 흔들림 제거) */
+  /*  Posted 위치 안정화 (중앙 정렬 + 흔들림 제거) */
   .tiles article > a .content .posted{
 	margin: 0 !important;
 	width: 100%;
 	text-align: center;   /* ← 오른쪽 치우침 해결 */
 	line-height: 1.2;
+  }
+
+
+  /* ===== Mobile FORCE===== */
+@media (hover: none) and (pointer: coarse) {
+
+	.tiles article{
+	  position: relative !important;
+	}
+  
+	.tiles article > a{
+	  position: absolute !important;
+	  inset: 0 !important;
+	}
+  
+	.tiles article > a .content{
+	  position: absolute !important;
+	  left: var(--posted-side) !important;
+	  right: var(--posted-side) !important;
+	  bottom: var(--posted-bottom) !important;
+	  margin: 0 !important;
+	  max-height: none !important;
+	  opacity: 1 !important;
+	}
+  
+	.tiles article > a .content > p:empty{
+	  margin: 0 !important;
+	  height: var(--posted-gap) !important;
+	}
+  
+	.tiles article > a .content .posted{
+	  margin: 0 !important;
+	  width: 100% !important;
+	  text-align: center !important;
+	}
   }
   
