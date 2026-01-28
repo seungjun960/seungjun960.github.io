@@ -3673,3 +3673,53 @@ p.photo-credit {
 	{ p.photo-credit{ font-size: 5.5px !important; } 
 }
   
+
+
+
+
+/* adding 2026.01.29 */
+
+/* ===============================
+   TILE Posted absolute positioning
+   조정 포인트는 :root 변수만 수정
+================================ */
+
+/* 조정용 변수 (여기 숫자만 만지면 됨) */
+:root{
+	--posted-bottom: 1.1em;   /* 타일 바닥에서 위로 */
+	--posted-side:   1.1em;   /* 좌우 여백 */
+	--posted-gap:    0.9em;   /* 빈 p가 만들어주는 시각적 간격 */
+  }
+  
+  /* 타일 기준점 */
+  .tiles article{
+	position: relative;
+  }
+  
+  /* 클릭 영역은 기존 absolute 유지 */
+  .tiles article > a{
+	position: absolute;
+	inset: 0;
+  }
+  
+  /* content를 바닥 고정 */
+  .tiles article > a .content{
+	position: absolute;
+	left: var(--posted-side);
+	right: var(--posted-side);
+	bottom: var(--posted-bottom);
+	margin: 0;
+  }
+  
+  /* 의도한 빈 p → 고정 스페이서로 사용 */
+  .tiles article > a .content > p:empty{
+	margin: 0 !important;
+	height: var(--posted-gap);
+  }
+  
+  /* Posted 문구 자체 흔들림 제거 */
+  .tiles article > a .content .posted{
+	margin: 0 !important;
+	line-height: 1.2;
+  }
+  
