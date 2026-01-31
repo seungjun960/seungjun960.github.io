@@ -3399,7 +3399,7 @@ body, input, select, textarea {
 	}
   }
 
-  /* 모바일(터치)에서만: hover 대신 .is-active 로 오버레이/줌 효과 */
+
 @media (hover: none) and (pointer: coarse) {
 
 	/* 기본은 숨김(PC hover 느낌 유지) */
@@ -3445,7 +3445,7 @@ body, input, select, textarea {
 	}
   }
 
-  /* YouTube Shorts responsive embed (9:16) */
+  /* YouTube Shorts (9:16) */
 .ytshorts-wrap{
 	width: min(420px, 100%);
 	margin: 1.25em auto;
