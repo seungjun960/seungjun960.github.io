@@ -1,10 +1,92 @@
-  
-  
-  
-  <!DOCTYPE HTML>
-  <html>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <body class="is-preload">
+    <!-- ✅ 05.html 전용 타이포그래피(글자 크기) 오버라이드 -->
+    <style>
+      /* ============================= */
+      /* Post05 Typography Override    */
+      /* ============================= */
+
+      /* 페이지 한정 스코프 */
+      body.post05 .post-body {
+        line-height: 1.75;
+        font-size: 16px; /* base */
+        color: #222;
+        max-width: 760px; /* 가독성 */
+      }
+
+      /* 메인 타이틀 */
+      body.post05 .post-title {
+        font-size: 34px;
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.3px;
+        margin: 0 0 10px 0;
+      }
+
+      /* 서브 타이틀 */
+      body.post05 .sub-title {
+        font-size: 18px;
+        color: #666;
+        margin: 0 0 28px 0;
+      }
+
+      /* 섹션 제목(h3) */
+      body.post05 .post-body h3 {
+        font-size: 24px;
+        font-weight: 800;
+        margin: 42px 0 14px 0;
+        letter-spacing: -0.2px;
+      }
+
+      /* 하위 제목(h4) */
+      body.post05 .post-body h4 {
+        font-size: 19px;
+        font-weight: 700;
+        margin: 28px 0 10px 0;
+      }
+
+      /* 본문 */
+      body.post05 .post-body p {
+        font-size: 15px;
+        line-height: 1.85;
+        margin: 0 0 16px 0;
+        color: #333;
+      }
+
+      /* 리스트 */
+      body.post05 .post-body ul,
+      body.post05 .post-body ol {
+        font-size: 15px;
+        line-height: 1.85;
+        margin: 0 0 18px 0;
+        padding-left: 20px;
+      }
+
+      /* 구분선 */
+      body.post05 .post-body hr {
+        margin: 34px 0;
+        opacity: 0.2;
+      }
+
+      /* 모바일에서 제목/본문 비율 살짝 조정 */
+      @media (max-width: 600px) {
+        body.post05 .post-title { font-size: 28px; }
+        body.post05 .sub-title { font-size: 16px; }
+        body.post05 .post-body h3 { font-size: 21px; }
+        body.post05 .post-body h4 { font-size: 18px; }
+        body.post05 .post-body p,
+        body.post05 .post-body ul,
+        body.post05 .post-body ol { font-size: 14.5px; }
+      }
+    </style>
+  </head>
+
+  <!-- ✅ 이 페이지(05.html)에서만 적용되도록 클래스 추가 -->
+  <body class="is-preload post05">
     <div id="wrapper">
 
       <!-- 헤더는 "Menu 버튼만" (index에서 헤더 고정하고 싶다면 최소화가 안전) -->
@@ -27,71 +109,70 @@
 
       <div id="main">
         <div class="inner">
-      
           <div class="post">
+
             <div class="ig-slider" aria-label="post images">
               <div class="ig-track">
-				<figure class="ig-slide"><img src="images/05.html/1.jpg" alt="post5-1" loading="lazy"></figure>
-				<figure class="ig-slide"><img src="images/05.html/2.jpg" alt="post5-2" loading="lazy"></figure>
-				<figure class="ig-slide"><img src="images/05.html/3.jpg" alt="post5-3" loading="lazy"></figure>
-				<figure class="ig-slide"><img src="images/05.html/4.jpg" alt="post5-4" loading="lazy"></figure>
-				<figure class="ig-slide"><img src="images/05.html/5.jpg" alt="post5-5" loading="lazy"></figure>
-				<figure class="ig-slide"><img src="images/05.html/6.jpg" alt="post5-6" loading="lazy"></figure>
+                <figure class="ig-slide"><img src="images/05.html/1.jpg" alt="post5-1" loading="lazy"></figure>
+                <figure class="ig-slide"><img src="images/05.html/2.jpg" alt="post5-2" loading="lazy"></figure>
+                <figure class="ig-slide"><img src="images/05.html/3.jpg" alt="post5-3" loading="lazy"></figure>
+                <figure class="ig-slide"><img src="images/05.html/4.jpg" alt="post5-4" loading="lazy"></figure>
+                <figure class="ig-slide"><img src="images/05.html/5.jpg" alt="post5-5" loading="lazy"></figure>
+                <figure class="ig-slide"><img src="images/05.html/6.jpg" alt="post5-6" loading="lazy"></figure>
               </div>
             </div>
 
-              
             <div class="ig-swipe-hint" aria-hidden="true">
               <span class="arrow">←</span>
               <span class="word">Swipe</span>
               <span class="arrow">→</span>
             </div>
 
-
             <div class="ig-dots" aria-hidden="true"></div>
-      
+
             <div class="post-body">
               <h2 class="post-title">AI Semiconducor: HBM·Packaging·Bonding 관점 투자 Report</h2>
               <p class="sub-title">Semicon Korea 2026 기조연설로 보는 AI 반도체 전망</p>
-            
+
               <hr />
-            
+
               <h3>Executive Summary</h3>
               <ul>
                 <li><b>요약:</b> AI 성능 경쟁의 중심이 ‘연산 코어’에서 <b>메모리 대역폭 + 패키징</b>으로 이동 중</li>
-                <li><b>산업 해석:</b> HBM Chip Stacking 될S수록 <b>본딩/패키징 공정 난이도</b>병목 될 가능성</li>
+                <li><b>산업 해석:</b> HBM Chip Stacking 될수록 <b>본딩/패키징 공정 난이도</b>가 병목이 될 가능성</li>
                 <li><b>투자 포인트:</b> 단기에는 <b>TCB(열압착 본딩)·후공정 장비/부품·테스트</b>가 선행 지표로 움직이기 쉬움</li>
                 <li><b>리스크:</b> AI 서버 CAPEX 둔화, HBM 가격 급락, Hybrid Bonding 전환 속도</li>
               </ul>
+
               <hr />
-            
-              <h3>1. Semicon Korea 2026 Nvidia & SK Hynix 기조연설</h3>
+
+              <h3>1. Semicon Korea 2026 Nvidia &amp; SK Hynix 기조연설</h3>
               <p>
                 <b>“Beyond ZFLOPS: 이제 병목은 메모리·패키징으로 넘어간다”</b>
                 실제로 기조연설/세션에서는 AI 성능 스케일링을 위해 <b>Advanced Packaging</b>이 전략적 축으로 반복 언급.
               </p>
               <p style="font-size:0.95em; opacity:0.85;">
-                (Keynote 패키징 난제 언급) 
-                </p>
-            
+                (Keynote 패키징 난제 언급)
+              </p>
+
               <hr />
-            
+
               <h3>2. 개념 정리</h3>
-            
+
               <h4>2-1. “연산이 빠른데 왜 느려지는지?”</h4>
               <p>
                 AI 서버는 ‘계산기(GPU)’가 아무리 빨라도, 데이터가 제때 공급되지 않으면 멈춘다.
                 데이터를 GPU로 보내는 속도를 '메모리 대역폭'이라 부름.
                 최신 AI 서버 경쟁력은 GPU 성능 + 메모리 대역폭이 함께 결정.
               </p>
-            
+
               <h4>2-2. HBM이란?</h4>
               <p>
                 HBM(High Bandwidth Memory)은 데이터를 한 번에 많이 보내기 위해
                 <b>메모리를 위로 ‘쌓는’ 구조</b>를 쓴다.
                 쉽게 말해 “2차선 3차선과 같이 (대역폭)늘리기 위해 도로를 옆으로 넓히는 대신, 고가도로처럼 위로 쌓는 방식”이다.
               </p>
-            
+
               <h4>2-3. 왜 Bonding이 중요해지는지?</h4>
               <p>
                 메모리를 쌓으려면 ‘붙여야’ 한다. 이때 쓰는 공정이 본딩(bonding)이다.
@@ -99,79 +180,46 @@
                 수율이 민감해질 수 있다.
                 패키징 세션에서도 HBM 스케일링에 따라 뒤틀림, 열, 미세 Pitch 등 제조 난이도가 높아짐.
               </p>
+
               <hr />
-            
+
               <h3>3. 투자관점: “병목은 곧 가치”</h3>
               <p>
                 Nvidia에서 말하는 방향(메모리/패키징 중심)과 HBM의 구조적 특성을 합치면,
                 AI CAPEX는 전공정만이 아니라 <b>후공정(Bonding·Packaging·Test)</b>로 강한 비중 언급.
                 특히 삼성 측에서도 HBM 시스템에서 전력/열, 그리고 하이브리드 본딩 준비 언급 다수.
               </p>
-            
+
               <hr />
-         
+
               <h4>Bucket A. HBM 본딩/후공정 장비</h4>
               <ul>
                 <li><b>의미:</b> “쌓는 과정(Bonding)이 어려워질수록” 장비 난이도·단가·진입장벽이 올라갈 수 있는 구간</li>
                 <li><b>중요 이유:</b> HBM 고적층화가 이어지면, 공정 제어(압력/열) 난이도 상승 → 장비 중요도 상승</li>
-                <li><b>후보:</b>1. 한미반도체
-
-                  Position: TC-Bonder 대표 기업
-                  
-                  Why?:
-                  
-                  HBM 고적층 → 본딩 정밀도 요구 상승
-                  
-                  메모리 업체 증설 시 장비 발주 선행
-                </li>
+                <li><b>후보:</b> 1. 한미반도체 — Position: TC-Bonder 대표 기업 / Why: HBM 고적층 → 본딩 정밀도 요구 상승, 메모리 업체 증설 시 장비 발주 선행</li>
               </ul>
 
-
-              <h4>Bucket B. 테스트 등 검사 인프라 </h4>
+              <h4>Bucket B. 테스트 등 검사 인프라</h4>
               <ul>
                 <li><b>의미:</b> 고대역폭/고집적 제품일수록 “불량을 빨리 잡아내는” 테스트 인프라의 가치가 올라감</li>
                 <li><b>중요 이유:</b> 적층·패키징 난이도 상승 → 테스트 커버리지/정밀도/처리량 중요</li>
-                <li><b>후보:</b>1. Advantest
-
-                  Position: 메모리/SoC 테스트 장비 글로벌 최상위
-                  
-                  Why?:
-
-                  적층·패키징 난이도 상승 → 테스트 커버리지/정밀도/처리량 중요
-                </li>
+                <li><b>후보:</b> 1. Advantest — Position: 메모리/SoC 테스트 장비 글로벌 최상위 / Why: 고속·고집적 메모리로 갈수록 테스트 장비 중요도 상승</li>
               </ul>
-
 
               <h4>Bucket C. OSAT/패키징</h4>
               <ul>
                 <li><b>의미:</b> “실제로 붙이고 조립해 납품하는” 쪽. 물량이 늘면 실적이 연결되기 쉬움</li>
                 <li><b>중요 이유:</b> AI 서버 확장 → 고사양 패키징 물량 증가, 공정 난이도 상승 시 마진 구조 변화 가능</li>
-                <li><b>후보:</b>1. 하나마이크론
-
-                  Position: 국내 대표 OSAT
-                  
-                  Why?:
-
-                  AI 서버 증가→ 고사양 패키징 물량 증가
-                  → OSAT 가동률/믹스 개선 가능
-                </li>
+                <li><b>후보:</b> 1. 하나마이크론 — Position: 국내 대표 OSAT / Why: AI 서버 증가 → 고사양 패키징 물량 증가 → 가동률/믹스 개선 가능</li>
               </ul>
-
 
               <h4>Bucket D. 기판/인터커넥트</h4>
               <ul>
-                <li><b>의미:</b> “실제로 붙이고 조립해 납품하는” 쪽은 물량 늘면 실적이 연결 쉬움</li>
+                <li><b>의미:</b> 데이터가 지나가는 “연결 도로”. 고속 신호/전력/열 요구가 빡빡해질수록 중요</li>
                 <li><b>중요 이유:</b> 패키징이 전략 축이 되면 기판·인터포저·연결재도 중요도 상승</li>
-                <li><b>후보:</b>1. Ibiden
-
-                  Position: FC-BGA 기판 글로벌 최상위
-                  
-                  Why?:
-
-                  AI GPU 출하 증가 → 고성능 기판 수요 동반 상승
-                  → Ibiden 기대효과 상승
-                </li>
+                <li><b>후보:</b> 1. Ibiden — Position: FC-BGA 기판 글로벌 최상위 / Why: AI GPU 출하 증가 → 고성능 기판 수요 동반 상승</li>
               </ul>
+
               <hr />
 
               <h3>4. 리스크</h3>
@@ -180,29 +228,28 @@
                 <li><b>HBM 가격 변동:</b> 가격 급락 시 증설 속도/투자 우선순위가 흔들릴 수 있음</li>
                 <li><b>기술 전환:</b> Hybrid Bonding이 예상보다 빨리 확산되면 기존 방식의 성장이 약해질 수 있음</li>
               </ul>
-            
+
               <hr />
-            
+
               <h3>5. 결론</h3>
               <p>
                 Semicon Korea 2026 기조연설은 단순히 “AI가 뜬다”가 아닌,
                 <b>AI의 성능을 결정하는 병목이 어디로 이동하는가</b>였다.
                 HBM 고적층 구조가 유지되는 동안,
                 본딩·패키징·테스트는 투자의 힌트가 될 수 있다.
-              </p>               
+              </p>
             </div>
+
           </div>
         </div>
       </div>
 
-    <!-- scripts: footer는 index에만 있어도, 각 페이지도 main.js는 있어야 메뉴 동작 정상 -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+      <!-- scripts: footer는 index에만 있어도, 각 페이지도 main.js는 있어야 메뉴 동작 정상 -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+    </div>
   </body>
-  </html>
-
-
-
+</html>
