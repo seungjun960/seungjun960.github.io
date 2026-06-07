@@ -3449,7 +3449,7 @@ body, input, select, textarea {
 .ytshorts-wrap{
 	width: min(420px, 100%);
 	margin: 1.25em auto;
-	aspect-ratio: 9 / 16;
+	aspect-ratio: 4 / 5;
 	border-radius: 16px;
 	overflow: hidden;
 	background: #000;
@@ -3571,7 +3571,7 @@ body, input, select, textarea {
   .ig-slide img {
 	width: 100%;
 	display: block;
-	aspect-ratio: 9 / 16;   /* 정사각(인스타 느낌). 4/5로 바꾸면 피드 느낌 */
+	aspect-ratio: 4 / 5;   /* 정사각(인스타 느낌). 4/5로 바꾸면 피드 느낌 */
 	object-fit: cover;
   }
   
@@ -3631,7 +3631,7 @@ body, input, select, textarea {
 	width: 100%;
 	overflow: hidden;
 	position: relative;
-	aspect-ratio: 9 / 16;
+	aspect-ratio: 4 / 5;
   }
   
   /* 폴백: aspect-ratio 미지원 브라우저 */
